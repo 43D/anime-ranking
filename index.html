@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ranking de anime</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">🌗</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="min-height: 65vh;">
+        <div class="row">
+            <div class="col-12 text-center" id="dTitle">
+                <h1 class=" mt-5" id="titulo">Bem-vindo ao {nome}, faça seu ranking agora!!</h1>
+            </div>
+
+            <div class="col-12 text-center" id="dStart">
+                <button id="btnStart" type="button" class="btn btn-outline-success btn-lg" style="margin-top: 25vh;"
+                    disabled>Começar</button>
+            </div>
+            <div class="col-12 d-none" id="dConfig">
+                <form action="javascript:void(0);" class="mt-5">
+                    <div class="mb-3">
+                        <label for="options" class="form-label">Selecione as opções</label>
+                        <select class="form-select" id="options" aria-label="Selecione as opções">
+                            <option value="0" disabled>Por ano</option>
+                            <option value="1" disabled>Por Temporada</option>
+                            <option value="2" disabled>MyAnimeList/AniList</option>
+                            <option value="3">JSON</option>
+                            <option value="99" disabled>Personalizado...</option>
+                        </select>
+                    </div>
+                    <div id="radio">
+                        <p>Rodadas (baseado na quantidade de música):</p>
+                        <div class="form-check">
+                            <input class="form-check-input" value="100" type="radio" name="rodadas" id="rodadas1"
+                                checked>
+                            <label class="form-check-label" for="rodadas1">
+                                1/1 (Lista pequena)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="66.6" type="radio" name="rodadas" id="rodadas2">
+                            <label class="form-check-label" for="rodadas2">
+                                2/3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="50" type="radio" name="rodadas" id="rodadas3">
+                            <label class="form-check-label" for="rodadas3">
+                                2/4
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" value="33.3" type="radio" name="rodadas" id="rodadas4">
+                            <label class="form-check-label" for="rodadas4">
+                                1/3 (Lista grande)
+                            </label>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="dOP d-none" id="dOp0">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2000">
+                            <label class="form-check-label byYear" for="2000">
+                                2000
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2001">
+                            <label class="form-check-label byYear" for="2001">
+                                2001
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2002">
+                            <label class="form-check-label byYear" for="2002">
+                                2002
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2003">
+                            <label class="form-check-label byYear" for="2003">
+                                2003
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2004">
+                            <label class="form-check-label byYear" for="2004">
+                                2004
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2005">
+                            <label class="form-check-label byYear" for="2005">
+                                2005
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2006">
+                            <label class="form-check-label byYear" for="2006">
+                                2006
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2007">
+                            <label class="form-check-label byYear" for="2007">
+                                2007
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2008">
+                            <label class="form-check-label byYear" for="2008">
+                                2008
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2009">
+                            <label class="form-check-label byYear" for="2009">
+                                2009
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2010">
+                            <label class="form-check-label byYear" for="2010">
+                                2010
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2011">
+                            <label class="form-check-label byYear" for="2011">
+                                2011
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2012">
+                            <label class="form-check-label byYear" for="2012">
+                                2012
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2013">
+                            <label class="form-check-label byYear" for="2013">
+                                2013
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2014">
+                            <label class="form-check-label byYear" for="2014">
+                                2014
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2015">
+                            <label class="form-check-label byYear" for="2015">
+                                2015
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2016">
+                            <label class="form-check-label byYear" for="2016">
+                                2016
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2017">
+                            <label class="form-check-label byYear" for="2017">
+                                2017
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2018">
+                            <label class="form-check-label byYear" for="2018">
+                                2018
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2019">
+                            <label class="form-check-label byYear" for="2019">
+                                2019
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2020">
+                            <label class="form-check-label byYear" for="2020">
+                                2020
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2021">
+                            <label class="form-check-label byYear" for="2021">
+                                2021
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" value="" id="2022">
+                            <label class="form-check-label byYear" for="2022">
+                                2022
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dOP d-none" id="dOp1">
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2000">
+                                <label class="form-check-label bySeason" for="Winter2000">
+                                    Winter 2000
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2001">
+                                <label class="form-check-label bySeason" for="Winter2001">
+                                    Winter 2001
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2002">
+                                <label class="form-check-label bySeason" for="Winter2002">
+                                    Winter 2002
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2003">
+                                <label class="form-check-label bySeason" for="Winter2003">
+                                    Winter 2003
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2004">
+                                <label class="form-check-label bySeason" for="Winter2004">
+                                    Winter 2004
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2005">
+                                <label class="form-check-label bySeason" for="Winter2005">
+                                    Winter 2005
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2006">
+                                <label class="form-check-label bySeason" for="Winter2006">
+                                    Winter 2006
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2007">
+                                <label class="form-check-label bySeason" for="Winter2007">
+                                    Winter 2007
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2008">
+                                <label class="form-check-label bySeason" for="Winter2008">
+                                    Winter 2008
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2009">
+                                <label class="form-check-label bySeason" for="Winter2009">
+                                    Winter 2009
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2010">
+                                <label class="form-check-label bySeason" for="Winter2010">
+                                    Winter 2010
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2011">
+                                <label class="form-check-label bySeason" for="Winter2011">
+                                    Winter 2011
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2012">
+                                <label class="form-check-label bySeason" for="Winter2012">
+                                    Winter 2012
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2013">
+                                <label class="form-check-label bySeason" for="Winter2013">
+                                    Winter 2013
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2014">
+                                <label class="form-check-label bySeason" for="Winter2014">
+                                    Winter 2014
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2015">
+                                <label class="form-check-label bySeason" for="Winter2015">
+                                    Winter 2015
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2016">
+                                <label class="form-check-label bySeason" for="Winter2016">
+                                    Winter 2016
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2017">
+                                <label class="form-check-label bySeason" for="Winter2017">
+                                    Winter 2017
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2018">
+                                <label class="form-check-label bySeason" for="Winter2018">
+                                    Winter 2018
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2019">
+                                <label class="form-check-label bySeason" for="Winter2019">
+                                    Winter 2019
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2020">
+                                <label class="form-check-label bySeason" for="Winter2020">
+                                    Winter 2020
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2021">
+                                <label class="form-check-label bySeason" for="Winter2021">
+                                    Winter 2021
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="Winter2022">
+                                <label class="form-check-label bySeason" for="Winter2022">
+                                    Winter 2022
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2000">
+                                    <label class="form-check-label bySeason" for="Spring2000">
+                                        Spring 2000
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2001">
+                                    <label class="form-check-label bySeason" for="Spring2001">
+                                        Spring 2001
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2002">
+                                    <label class="form-check-label bySeason" for="Spring2002">
+                                        Spring 2002
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2003">
+                                    <label class="form-check-label bySeason" for="Spring2003">
+                                        Spring 2003
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2004">
+                                    <label class="form-check-label bySeason" for="Spring2004">
+                                        Spring 2004
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2005">
+                                    <label class="form-check-label bySeason" for="Spring2005">
+                                        Spring 2005
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2006">
+                                    <label class="form-check-label bySeason" for="Spring2006">
+                                        Spring 2006
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2007">
+                                    <label class="form-check-label bySeason" for="Spring2007">
+                                        Spring 2007
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2008">
+                                    <label class="form-check-label bySeason" for="Spring2008">
+                                        Spring 2008
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2009">
+                                    <label class="form-check-label bySeason" for="Spring2009">
+                                        Spring 2009
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2010">
+                                    <label class="form-check-label bySeason" for="Spring2010">
+                                        Spring 2010
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2011">
+                                    <label class="form-check-label bySeason" for="Spring2011">
+                                        Spring 2011
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2012">
+                                    <label class="form-check-label bySeason" for="Spring2012">
+                                        Spring 2012
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2013">
+                                    <label class="form-check-label bySeason" for="Spring2013">
+                                        Spring 2013
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2014">
+                                    <label class="form-check-label bySeason" for="Spring2014">
+                                        Spring 2014
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2015">
+                                    <label class="form-check-label bySeason" for="Spring2015">
+                                        Spring 2015
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2016">
+                                    <label class="form-check-label bySeason" for="Spring2016">
+                                        Spring 2016
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2017">
+                                    <label class="form-check-label bySeason" for="Spring2017">
+                                        Spring 2017
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2018">
+                                    <label class="form-check-label bySeason" for="Spring2018">
+                                        Spring 2018
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2019">
+                                    <label class="form-check-label bySeason" for="Spring2019">
+                                        Spring 2019
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2020">
+                                    <label class="form-check-label bySeason" for="Spring2020">
+                                        Spring 2020
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2021">
+                                    <label class="form-check-label bySeason" for="Spring2021">
+                                        Spring 2021
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Spring2022" disabled>
+                                    <label class="form-check-label bySeason" for="Spring2022">
+                                        Spring 2022
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2000">
+                                    <label class="form-check-label bySeason" for="Summer2000">
+                                        Summer 2000
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2001">
+                                    <label class="form-check-label bySeason" for="Summer2001">
+                                        Summer 2001
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2002">
+                                    <label class="form-check-label bySeason" for="Summer2002">
+                                        Summer 2002
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2003">
+                                    <label class="form-check-label bySeason" for="Summer2003">
+                                        Summer 2003
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2004">
+                                    <label class="form-check-label bySeason" for="Summer2004">
+                                        Summer 2004
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2005">
+                                    <label class="form-check-label bySeason" for="Summer2005">
+                                        Summer 2005
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2006">
+                                    <label class="form-check-label bySeason" for="Summer2006">
+                                        Summer 2006
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2007">
+                                    <label class="form-check-label bySeason" for="Summer2007">
+                                        Summer 2007
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2008">
+                                    <label class="form-check-label bySeason" for="Summer2008">
+                                        Summer 2008
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2009">
+                                    <label class="form-check-label bySeason" for="Summer2009">
+                                        Summer 2009
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2010">
+                                    <label class="form-check-label bySeason" for="Summer2010">
+                                        Summer 2010
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2011">
+                                    <label class="form-check-label bySeason" for="Summer2011">
+                                        Summer 2011
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2012">
+                                    <label class="form-check-label bySeason" for="Summer2012">
+                                        Summer 2012
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2013">
+                                    <label class="form-check-label bySeason" for="Summer2013">
+                                        Summer 2013
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2014">
+                                    <label class="form-check-label bySeason" for="Summer2014">
+                                        Summer 2014
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2015">
+                                    <label class="form-check-label bySeason" for="Summer2015">
+                                        Summer 2015
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2016">
+                                    <label class="form-check-label bySeason" for="Summer2016">
+                                        Summer 2016
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2017">
+                                    <label class="form-check-label bySeason" for="Summer2017">
+                                        Summer 2017
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2018">
+                                    <label class="form-check-label bySeason" for="Summer2018">
+                                        Summer 2018
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2019">
+                                    <label class="form-check-label bySeason" for="Summer2019">
+                                        Summer 2019
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2020">
+                                    <label class="form-check-label bySeason" for="Summer2020">
+                                        Summer 2020
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2021">
+                                    <label class="form-check-label bySeason" for="Summer2021">
+                                        Summer 2021
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Summer2022" disabled>
+                                    <label class="form-check-label bySeason" for="Summer2022">
+                                        Summer 2022
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2000">
+                                    <label class="form-check-label bySeason" for="Fall2000">
+                                        Fall 2000
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2001">
+                                    <label class="form-check-label bySeason" for="Fall2001">
+                                        Fall 2001
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2002">
+                                    <label class="form-check-label bySeason" for="Fall2002">
+                                        Fall 2002
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2003">
+                                    <label class="form-check-label bySeason" for="Fall2003">
+                                        Fall 2003
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2004">
+                                    <label class="form-check-label bySeason" for="Fall2004">
+                                        Fall 2004
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2005">
+                                    <label class="form-check-label bySeason" for="Fall2005">
+                                        Fall 2005
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2006">
+                                    <label class="form-check-label bySeason" for="Fall2006">
+                                        Fall 2006
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2007">
+                                    <label class="form-check-label bySeason" for="Fall2007">
+                                        Fall 2007
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2008">
+                                    <label class="form-check-label bySeason" for="Fall2008">
+                                        Fall 2008
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2009">
+                                    <label class="form-check-label bySeason" for="Fall2009">
+                                        Fall 2009
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2010">
+                                    <label class="form-check-label bySeason" for="Fall2010">
+                                        Fall 2010
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2011">
+                                    <label class="form-check-label bySeason" for="Fall2011">
+                                        Fall 2011
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2012">
+                                    <label class="form-check-label bySeason" for="Fall2012">
+                                        Fall 2012
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2013">
+                                    <label class="form-check-label bySeason" for="Fall2013">
+                                        Fall 2013
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2014">
+                                    <label class="form-check-label bySeason" for="Fall2014">
+                                        Fall 2014
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2015">
+                                    <label class="form-check-label bySeason" for="Fall2015">
+                                        Fall 2015
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2016">
+                                    <label class="form-check-label bySeason" for="Fall2016">
+                                        Fall 2016
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2017">
+                                    <label class="form-check-label bySeason" for="Fall2017">
+                                        Fall 2017
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2018">
+                                    <label class="form-check-label bySeason" for="Fall2018">
+                                        Fall 2018
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2019">
+                                    <label class="form-check-label bySeason" for="Fall2019">
+                                        Fall 2019
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2020">
+                                    <label class="form-check-label bySeason" for="Fall2020">
+                                        Fall 2020
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2021">
+                                    <label class="form-check-label bySeason" for="Fall2021">
+                                        Fall 2021
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" value="" id="Fall2022" disabled>
+                                    <label class="form-check-label bySeason" for="Fall2022">
+                                        Fall 2022
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dOP d-none" id="dOp2">
+                        b
+                    </div>
+                    <div class="dOP d-none" id="dOp3">
+                        <div class="mb-3">
+                            <label for="jsonOptions" class="form-label">Selecione as alternativas</label>
+                            <select class="form-select" id="jsonOptions" aria-label="Selecione as opções">
+                                <option value="0">AMQ {name} Script</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="QVnOptions" class="form-label">Qualidade</label>
+                            <select class="form-select" id="QVnOptions" aria-label="Selecione as opções">
+                                <option value="0">Sound Only</option>
+                                <option value="480" selected>480p</option>
+                                <option value="720">720p</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="mb-3">
+                            <label for="urlJson" class="form-label">Via link</label>
+                            <input type="text" class="form-control" placeholder="https://.json"
+                                aria-label="https://.json" aria-describedby="basic-addon1" id="urlJson">
+                        </div>
+                        OR
+                        <div class="mb-3">
+                            <label class="form-label" for="fileJson">Custom JSON</label>
+                            <input type="file" class="form-control" id="fileJson">
+                        </div>
+                    </div>
+                    <div class="d-none" id="dOp99">
+                        a
+                    </div>
+                    <div class="text-center">
+                        <button id="btnConfig" type="button"
+                            class=" btn btn-outline-success btn-lg my-5">Confirmar</button>
+                        <button id="btnClean" disabled type="button"
+                            class=" btn btn-outline-danger btn-lg my-5">Limpar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6 col-12 rounded d-none text-center py-5 border border-success border-5" id="dDisplay1">
+                <p id="name1" class="m-0">Anime</p>
+                <p id="romaji1">Anime</p>
+                <p id="type1">Opening</p>
+                <p id="song1" class="m-0">Musica</p>
+                <p id="author1" class="m-0">artista</p>
+                <a id="mal1" href="#" target="_blank">MyAnimeList</a>
+                <div class="audio" id="au1">
+                    <audio id="audio1" src="" controls preload="auto"></audio>
+                </div>
+                <div class="video ratio ratio-16x9" id="vi1">
+                    <video id="video1" src="" controls preload="auto"></video>
+                </div>
+            </div>
+            <div class="col-sm-6 col-12 rounded d-none text-center py-5 border border-5" id="dDisplay2">
+                <p id="name2" class="m-0">Anime</p>
+                <p id="romaji2">Anime</p>
+                <p id="type2">Opening</p>
+                <p id="song2" class="m-0">Musica</p>
+                <p id="author2" class="m-0">artista</p>
+                <a id="mal2" href="#" target="_blank">MyAnimeList</a>
+                <div class="audio" id="au2">
+                    <audio id="audio2" src="" controls preload="auto"></audio>
+                </div>
+                <div class="video ratio ratio-16x9" id="vi2">
+                    <video id="video2" src="" controls preload="auto"></video>
+                </div>
+            </div>
+            <div class="col-12 d-none text-center mt-3" id="dDisplay3">
+                <p>Rodadas: <span id="rodadaAtual">1</span> de <span id="rodadaFinal">0</span></p>
+                <button id="btnConfirm" type="button" class="btn btn-outline-success btn-lg">Próximo</button>
+            </div>
+            <div class="col-12 d-none mt-3" id="dResultado">
+                <table class="table table-hover  table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Música</th>
+                            <th scope="col">Anime</th>
+                            <th scope="col">Audio</th>
+                            <th scope="col">Vídeo</th>
+                            <th scope="col">MyAnimeList</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="mt-5 py-5 text-center bg-light">
+        nada nosso, footer
+    </footer>
+
+    <!-- <iframe id="iframe" src="https://themes.moe/list/season/2021/summer" frameborder="0" width="100%"
+        height="0px"></iframe> -->
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+        var score = new Map();
+        var data = {};
+        var ordem = [];
+        var ordemI = 1;
+        var rodada = 1;
+        var rodadaFinal = 100;
+        var selected = [0, 1];
+        var selectedDiv = "dDisplay1";
+        var videoQuality = "0";
+
+        $(function () {
+            init();
+            $("#iframe").load("ajax/test.html", function () {
+                setTimeout(() => {
+                    init()
+                }, "2000");
+
+            });
+
+            $("#btnStart").click(function () {
+                displayConfig();
+            });
+
+            $("#btnConfig").click(function () {
+                const selected_option_value = $('#options').find(":selected").val();
+                getList(selected_option_value);
+            });
+
+            $("#dDisplay1").click(function () {
+                $("#dDisplay2").removeClass("border-success");
+                $("#dDisplay1").addClass("border-success");
+                selectedDiv = "dDisplay1";
+            });
+            $("#dDisplay2").click(function (e) {
+                $("#dDisplay1").removeClass("border-success");
+                $("#dDisplay2").addClass("border-success");
+                selectedDiv = "dDisplay2";
+            });
+
+
+            $("#btnConfirm").click(function () {
+                next();
+            });
+
+            $('#radio input[type="radio"]').click(function () {
+                rodadaFinal = $(this).val();
+            });
+
+            $('#options').on('change', function () {
+                var selected_option_value = $(this).find(":selected").val();
+                switch (selected_option_value) {
+                    case "0":
+                        displayOp(selected_option_value);
+                        break;
+                    case "1":
+                        displayOp(selected_option_value);
+                        break;
+                    case "2":
+                        displayOp(selected_option_value);
+                        break;
+                    case "3":
+                        displayOp(selected_option_value);
+                        break;
+                    case "99":
+                        displayOp(selected_option_value);
+                        break;
+                    default:
+                        break;
+                }
+            });
+        });
+
+        function init() {
+            $("#btnStart").prop("disabled", false);
+        }
+
+        function diplayOpNone() {
+            $(".dOP").addClass("d-none");
+        }
+
+        function displayOp(num) {
+            diplayOpNone();
+            $("#dOp" + num).removeClass("d-none");
+        }
+
+        function displayResult() {
+            diplayNone();
+            $("#dResultado").removeClass("d-none");
+        }
+
+        function diplayNone() {
+            $("#dDisplay1").addClass("d-none");
+            $("#dDisplay2").addClass("d-none");
+            $("#dDisplay3").addClass("d-none");
+            $("#dStart").addClass("d-none");
+            $("#dConfig").addClass("d-none");
+            $("#dResultado").addClass("d-none");
+        }
+
+        function displayConfig() {
+            diplayNone();
+            $("#dConfig").removeClass("d-none");
+            const selected_option_value = $('#options').find(":selected").val();
+            displayOp(selected_option_value);
+        }
+
+        function displayChoose() {
+            diplayNone();
+            $("#dDisplay1").removeClass("d-none");
+            $("#dDisplay2").removeClass("d-none");
+            $("#dDisplay3").removeClass("d-none");
+            $("#titulo").html("Escolha o melhor entre os dois!!");
+        }
+
+        function disableVideo() {
+            $(".video").addClass("d-none");
+        }
+        function disableAudio() {
+            $(".audio").addClass("d-none");
+        }
+
+        function getList(selected_option_value) {
+            //var iFrameDOM = $("#frame").contents();
+            //iFrameDOM.find("a.dropdown-item:nth-of-type(8)")[0].click();
+
+            // $("a.dropdown-item:nth-of-type(8)")[0].click();
+            //let tr = $("table")[0].lastChild.childNodes;
+            switch (selected_option_value) {
+                case "0":
+                    break;
+                case "1":
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    getJsonAMQ();
+                    sourceAMQQuality();
+                    break;
+                case "99":
+                    break;
+                default:
+                    displayConfig();
+                    break;
+            }
+            $("video")[0].volume = 0.15;
+            $("video")[1].volume = 0.15;
+            $("audio")[0].volume = 0.15;
+            $("audio")[1].volume = 0.15;
+        }
+
+        function pause(){
+            $("video")[0].pause();
+            $("video")[1].pause();
+            $("audio")[0].pause();
+            $("audio")[1].pause();
+        }
+
+        function countRodada() {
+            rodadaFinal = parseInt(data.length * parseFloat(rodadaFinal) / 100);
+            $("#rodadaFinal").html(rodadaFinal);
+        }
+
+        function sourceAMQQuality() {
+            videoQuality = $('#QVnOptions').find(":selected").val();
+            sourceAMQEnable();
+            if (videoQuality == "0") {
+                disableVideo();
+            } else {
+                disableAudio();
+            }
+        }
+
+        function sourceAMQEnable() {
+            $(".video").removeClass("d-none");
+            $(".audio").removeClass("d-none");
+        }
+
+        function sourceAMQAudio(id_div) {
+            $("#vi" + id_div).addClass("d-none");
+            $("#au" + id_div).removeClass("d-none");
+        }
+
+        async function getJs(url) {
+            return await getJsonPromise(url).then(resultado => {
+                return resultado;
+            });
+        }
+        function getJsonPromise(url) {
+            return new Promise((resolve, reject) => {
+                let resultado = $.getJSON(url);
+                resolve(resultado);
+            });
+        }
+
+        function isEmptyValue(el) {
+            return !$.trim(el.val())
+        }
+
+        async function getJsonAMQ() {
+            try {
+                data = await getJs($("#urlJson").val());
+                displayChoose();
+                createScore();
+                countRodada();
+                displayFirtsList();
+            } catch (e) {
+                try {
+                    data = await getFileJson();
+                    displayChoose();
+                    createScore();
+                    countRodada();
+                    displayFirtsList();
+                } catch (e) {
+                    console.log("no data");
+                }
+            }
+        }
+
+        async function getFileJson() {
+            const file = $('#fileJson').prop('files')[0];
+            if (file.type == 'application/json') {
+                if (file) {
+
+                    b = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.readAsText(file);
+                        reader.onload = res => {
+                            resolve(res.target.result);
+                        };
+                    });
+
+
+                    return await JSON.parse(b);
+                }
+            }
+        }
+
+        function createScore() {
+            for (i = 0; i < data.length; i++) {
+                score.set(i, 0);
+                ordem[i] = i;
+            }
+        }
+
+        function displayFirtsList() {
+            displayList(1, 0);
+            displayList(2, 1);
+        }
+
+        function displayList(id_div, id_list) {
+            sourceAMQQuality();
+            pause();
+            $("#name" + id_div).html(data[id_list].anime.english);
+            $("#romaji" + id_div).html(data[id_list].anime.romaji);
+            $("#type" + id_div).html(data[id_list].type);
+            $("#song" + id_div).html(data[id_list].name);
+            $("#author" + id_div).html(data[id_list].artist);
+            $("#mal" + id_div).attr("href", "https://myanimelist.net/anime/" + data[id_list].siteIds.malId);
+
+            selected[id_div - 1] = id_list;
+
+            if (videoQuality == "0")
+                $("#audio" + id_div).attr("src", data[id_list].urls.catbox[0]);
+            else
+                if (data[id_list].urls.catbox[videoQuality] != undefined)
+                    $("#video" + id_div).attr("src", data[id_list].urls.catbox[videoQuality]);
+                else {
+                    $("#audio" + id_div).attr("src", data[id_list].urls.catbox[0]);
+                    sourceAMQAudio(id_div);
+                }
+        }
+
+        function next() {
+            if (selectedDiv == "dDisplay1") {
+                score.set(selected[0], score.get(selected[0]) + 1);
+                score.set(selected[1], score.get(selected[1]) - 1);
+                next2(2);
+            } else {
+                score.set(selected[0], score.get(selected[0]) - 1);
+                score.set(selected[1], score.get(selected[1]) + 1);
+                next2(1);
+            }
+        }
+        function next2(id) {
+            ordemI += 1;
+            if (ordemI == data.length)
+                reordem();
+            else
+                displayList(id, ordem[ordemI]);
+        }
+
+        function reordem() {
+            rodada += 1;
+            if (rodada > rodadaFinal) {
+                score = new Map([...score.entries()].sort((a, b) => b[1] - a[1]));
+                ordem = Array.from(score.keys());
+                displayResult();
+                displayTable();
+            } else {
+                ordemI = 1;
+                $("#titulo").html("Rodada " + rodada + "!!!!!!!");
+                $("#rodadaAtual").html(rodada);
+                score = new Map([...score.entries()].sort((a, b) => a[1] - b[1]));
+                ordem = Array.from(score.keys());
+                displayList(1, ordem[0]);
+                displayList(2, ordem[1]);
+            }
+
+        }
+
+        function displayTable() {
+            $("#titulo").html("Resultado Final");
+            for (let i = 0; i < ordem.length; i++) {
+                let obj = data[(ordem[i])];
+                inserirTBody(obj, i + 1);
+            }
+        }
+
+        function inserirTBody(obj, pos) {
+            var row = $('<tr>').addClass('rows');
+
+            var td1 = $('<td>').html(pos);
+            var td2 = $('<td>').html(obj.name);
+            var td3 = $('<td>').html(obj.anime.english);
+            var td4 = $('<td>');
+            var link1 = $('<a>').attr("href", obj.urls.catbox[0]).attr("target", "_blank").html("Audio");
+            td4.append(link1);
+            var td5 = $('<td>');
+
+            if (obj.urls.catbox[480] != undefined)
+                var link2 = $('<a>').attr("href", obj.urls.catbox[480]).attr("target", "_blank").html("Vídeo 720p");
+            else if (obj.urls.catbox[720] != undefined)
+                var link2 = $('<a>').attr("href", obj.urls.catbox[720]).attr("target", "_blank").html("Vídeo 480p");
+            else
+                var link2 = $('<span>').html("Vídeo??");
+            td5.append(link2);
+            var td6 = $('<td>');
+            var link3 = $('<a>').attr("href", "https:myanimelist.net/anime/" + obj.siteIds.malId).attr("target", "_blank").html("MAL");
+            td6.append(link3);
+            row.append(td1);
+            row.append(td2);
+            row.append(td3);
+            row.append(td4);
+            row.append(td5);
+            row.append(td6);
+            $("#tbody").append(row);
+        }
+
+    </script>
+</body>
+
+</html>
