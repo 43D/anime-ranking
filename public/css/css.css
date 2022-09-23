@@ -1,0 +1,33 @@
+.hidden-scrool {
+    overflow-y: hidden;
+    margin: 0px;
+}
+
+.vh-80 {
+    height: 80vh;
+}
+.div-height{
+    height: 80%;
+}
+
+@media screen and (max-width: 990px) {
+    /* 6 */
+    .vh-80 {
+        height: 40vh;
+    }
+    .div-height{
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    /* 12 */
+    .vh-80 {
+        height: 20vh;
+    }
+    .div-height{
+        height: 60%;
+    }
+}
+
+
