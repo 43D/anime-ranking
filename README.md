@@ -2,4 +2,4 @@
 
 Ranking anime
 
-código smell, tenta cuidado
+código smell, tenha cuidado
