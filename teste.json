@@ -1,0 +1,221 @@
+[
+    {
+        "gameMode": "Solo",
+        "name": "Y.O.L.O ! ! ! ! !",
+        "artist": "Afterglow",
+        "anime": {
+            "english": "BanG Dream! 2nd Season",
+            "romaji": "BanG Dream! 2nd Season"
+        },
+        "annId": 21289,
+        "songNumber": 1,
+        "activePlayers": 1,
+        "totalPlayers": 1,
+        "type": "Insert Song",
+        "urls": {
+            "catbox": {
+                "0": "https://files.catbox.moe/l6kzei.mp3",
+                "720": "https://files.catbox.moe/ad9ksj.webm"
+            }
+        },
+        "siteIds": {
+            "annId": 21289,
+            "malId": 37869,
+            "kitsuId": 41289,
+            "aniListId": 101633
+        },
+        "difficulty": "38.5",
+        "animeType": "TV",
+        "animeScore": 5,
+        "vintage": "Winter 2019",
+        "tags": [
+            "School",
+            "Primarily Female Cast",
+            "Full CGI",
+            "Cute Girls Doing Cute Things",
+            "Female Protagonist",
+            "Band",
+            "Twins",
+            "Primarily Teen Cast"
+        ],
+        "genre": [
+            "Comedy",
+            "Drama",
+            "Music",
+            "Slice of Life"
+        ],
+        "altAnswers": [
+            "BanG Dream! 2nd Season",
+            "BanG Dream! Film Live"
+        ],
+        "startSample": 27,
+        "videoLength": 109.46,
+        "players": [
+            {
+                "name": "Levih",
+                "score": 0,
+                "correct": false,
+                "answer": "...",
+                "active": true,
+                "position": 1,
+                "positionSlot": 0
+            }
+        ],
+        "fromList": [
+            {
+                "name": "Levih",
+                "listStatus": 5,
+                "score": null
+            }
+        ],
+        "correct": false,
+        "selfAnswer": "..."
+    },
+    {
+        "gameMode": "Solo",
+        "name": "Mirai Train",
+        "artist": "Poppin'Party",
+        "anime": {
+            "english": "BanG Dream! 3rd Season",
+            "romaji": "BanG Dream! 3rd Season"
+        },
+        "annId": 22909,
+        "songNumber": 2,
+        "activePlayers": 1,
+        "totalPlayers": 1,
+        "type": "Insert Song",
+        "urls": {
+            "catbox": {
+                "0": "https://files.catbox.moe/e6urbx.mp3",
+                "720": "https://files.catbox.moe/8wck4t.webm"
+            }
+        },
+        "siteIds": {
+            "annId": 22909,
+            "malId": 37870,
+            "kitsuId": 41290,
+            "aniListId": 101634
+        },
+        "difficulty": "25.7",
+        "animeType": "TV",
+        "animeScore": 5,
+        "vintage": "Winter 2020",
+        "tags": [
+            "School",
+            "Primarily Female Cast",
+            "Full CGI",
+            "Cute Girls Doing Cute Things",
+            "Female Protagonist",
+            "Ensemble Cast",
+            "Band",
+            "Twins",
+            "Primarily Teen Cast"
+        ],
+        "genre": [
+            "Comedy",
+            "Music",
+            "Slice of Life"
+        ],
+        "altAnswers": [
+            "BanG Dream! 3rd Season",
+            "BanG Dream! Film Live 2nd Stage"
+        ],
+        "startSample": 26,
+        "videoLength": 105.22,
+        "players": [
+            {
+                "name": "Levih",
+                "score": 0,
+                "correct": false,
+                "answer": "...",
+                "active": true,
+                "position": 1,
+                "positionSlot": 0
+            }
+        ],
+        "fromList": [
+            {
+                "name": "Levih",
+                "listStatus": 5,
+                "score": null
+            }
+        ],
+        "correct": false,
+        "selfAnswer": "..."
+    },
+    {
+        "gameMode": "Solo",
+        "name": "Shuwarin☆Drea~min",
+        "artist": "Pastel*Palettes",
+        "anime": {
+            "english": "BanG Dream! 2nd Season",
+            "romaji": "BanG Dream! 2nd Season"
+        },
+        "annId": 21289,
+        "songNumber": 50,
+        "activePlayers": 1,
+        "totalPlayers": 1,
+        "type": "Insert Song",
+        "urls": {
+            "catbox": {
+                "0": "https://files.catbox.moe/1oq3vo.mp3",
+                "720": "https://files.catbox.moe/nyy01b.webm"
+            }
+        },
+        "siteIds": {
+            "annId": 21289,
+            "malId": 37869,
+            "kitsuId": 41289,
+            "aniListId": 101633
+        },
+        "difficulty": "42.1",
+        "animeType": "TV",
+        "animeScore": 5,
+        "vintage": "Winter 2019",
+        "tags": [
+            "School",
+            "Primarily Female Cast",
+            "Full CGI",
+            "Cute Girls Doing Cute Things",
+            "Female Protagonist",
+            "Band",
+            "Twins",
+            "Primarily Teen Cast"
+        ],
+        "genre": [
+            "Comedy",
+            "Drama",
+            "Music",
+            "Slice of Life"
+        ],
+        "altAnswers": [
+            "BanG Dream! 2nd Season",
+            "Pastel Life",
+            "BanG Dream! Film Live",
+            "BanG Dream! Episode of Roselia",
+            "BanG Dream! Girls Band Party!: 5th Anniversary Animation - CiRCLE THANKS PARTY!"
+        ],
+        "startSample": 17,
+        "videoLength": 99.31,
+        "players": [
+            {
+                "name": "Levih",
+                "score": 0,
+                "correct": false,
+                "answer": "...",
+                "active": true,
+                "position": 1,
+                "positionSlot": 0
+            }
+        ],
+        "fromList": [
+            {
+                "name": "Levih",
+                "listStatus": 5,
+                "score": null
+            }
+        ],
+        "correct": false,
+        "selfAnswer": "..."
+    }
+]
