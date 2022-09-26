@@ -154,7 +154,7 @@ export function display() {
             var link2 = $('<span>').html("Vídeo??");
         td5.append(link2);
         var td6 = $('<td>');
-        var link3 = $('<a>').attr("href", "https:myanimelist.net/anime/" + obj.siteIds.malId).attr("target", "_blank").html("MAL");
+        var link3 = $('<a>').attr("href", "https://myanimelist.net/anime/" + obj.siteIds.malId).attr("target", "_blank").html("MAL");
         td6.append(link3);
         row.append(td1);
         row.append(td2);
