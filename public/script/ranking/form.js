@@ -1,8 +1,10 @@
 import { jsonManipulator } from "../jsonManipulator.js";
+import { fileReader } from "../fileReader.js";
 import { display } from "./display.js";
 
 let jsonManClass;
 let displayClass;
+let fileReaderClass;
 
 export function form() {
     let musicFinalList = undefined;
@@ -10,6 +12,7 @@ export function form() {
     function init(config = {}) {
         jsonManClass = (config.jsonManipulator) ? config.jsonManipulator() : jsonManipulator();
         displayClass = (config.display) ? config.display() : display();
+        fileReaderClass = (config.fileReader) ? config.fileReader() : fileReader();
     }
 
     async function generatorList() {
@@ -71,24 +74,9 @@ function getJsonAMQ() {
     }
 
     async function getFileJson() {
-        
         const file = $('#fileJson').prop('files')[0];
-        if (file.type == 'application/json') {
-            if (file) {
-                let b = await new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.readAsText(file);
-                    reader.onload = res => {
-                        let resultado = res.target.result;
-                        resolve(resultado);
-                    };
-                }).then(resultado =>  {
-                    return JSON.parse(resultado);
-                    
-                });
-                return b;
-            }
-        }
+        await fileReaderClass.getFileJson(file);
+        return fileReaderClass.getJson();
     }
 
     return {

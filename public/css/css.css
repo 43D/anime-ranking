@@ -6,6 +6,10 @@
 .vh-80 {
     height: 80vh;
 }
+
+.vh-81 {
+    height: 81vh;
+}
 .div-height{
     height: 80%;
 }
@@ -24,6 +28,9 @@
     /* 12 */
     .vh-80 {
         height: 20vh;
+    }
+    .vh-81   {
+        height: 40vh;
     }
     .div-height{
         height: 60%;

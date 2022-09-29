@@ -68,7 +68,6 @@ export function musicChoose() {
     }
 
     function initFistRound() {
-        console.log(musicList);
         displayClass.displayList(1, musicList, 0);
         displayClass.displayList(2, musicList, 1);
     }
