@@ -4,7 +4,9 @@ import { media } from "./media.js";
 import { events } from "./events.js";
 import { display } from "./display.js";
 import { jsonManipulator } from "../jsonManipulator.js";
+import { theme } from "../theme.js";
 
+let themeClass;
 let jsonManClass;
 let formClass;
 let musicChooseClass;
@@ -19,7 +21,7 @@ export function ranking() {
     mediaClass = media();
     musicChooseClass = musicChoose();
     jsonManClass = jsonManipulator();
-    
+    themeClass = theme();
 
     function init() {
         displayClass.init({formClass});

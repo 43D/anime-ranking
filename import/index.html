@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/animes/public/css/css.css">
 </head>
 
-<body>
+<body class="body">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/animes">Home</a>
@@ -34,17 +34,12 @@
                         <a class="nav-link" href="/animes/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">🌗</a>
+                        <a class="nav-link" href="#" id="dark_light">🌗</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <div>
-        <h1 style="color: red;">Apenas UI para testes</h1>
-    </div>
-
     <div class="container-fluid">
         <div class="row" id="divOptions" style="min-height: 65vh;">
             <div class="col-12 vh-81 col-sm-6 col-lg-6 border">
@@ -62,7 +57,7 @@
                     <p>Ouça as músicas de JSON AMQ sem precisar salvar</p>
                 </div>
                 <div class="text-center">
-                    <a href="/animes/player/fast" class="btn btn-success">Ouvir rapidamente um JSON</a>
+                    <a href="/animes/player?fast=json" class="btn btn-success">Ouvir rapidamente um JSON</a>
                 </div>
             </div>
         </div>
@@ -137,6 +132,7 @@
         nada nosso, footer
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
     <script type="module" src="/animes/public/script/import/app.js"></script>
 </body>
 
