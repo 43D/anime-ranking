@@ -28,6 +28,9 @@ body.dark-mode{
     .div-height{
         height: 70%;
     }
+    .flex-column-mobile{
+        flex-direction: column!important;
+    }
 }
 
 @media screen and (max-width: 575px) {
