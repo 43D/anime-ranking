@@ -11,9 +11,9 @@ let round = 1;
 export function display() {
 
     function init(config = {}) {
-        formClass = (config.form) ? config.form() : form();
-        mediaClass = (config.media) ? config.media() : media();
-        musicChooseClass = (config.musicChoose) ? config.musicChoose() : musicChoose();
+        formClass = (config.form) ? config.form : form();
+        mediaClass = (config.media) ? config.media : media();
+        musicChooseClass = (config.musicChoose) ? config.musicChoose : musicChoose();
     }
 
     function removeDisable(id) {

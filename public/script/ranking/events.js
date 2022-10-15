@@ -8,9 +8,9 @@ let musicChooseClass;
 
 export function events() {
     function init(config = {}) {
-        displayClass = (config.display) ? config.display() : display();
-        formClass = (config.form) ? config.form() : form();
-        musicChooseClass = (config.musicChoose) ? config.musicChoose() : musicChoose();
+        displayClass = (config.display) ? config.display : display();
+        formClass = (config.form) ? config.form : form();
+        musicChooseClass = (config.musicChoose) ? config.musicChoose : musicChoose();
     }
 
     function startEvent() {

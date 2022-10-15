@@ -10,9 +10,9 @@ export function form() {
     let musicFinalList = undefined;
 
     function init(config = {}) {
-        jsonManClass = (config.jsonManipulator) ? config.jsonManipulator() : jsonManipulator();
-        displayClass = (config.display) ? config.display() : display();
-        fileReaderClass = (config.fileReader) ? config.fileReader() : fileReader();
+        jsonManClass = (config.jsonManipulator) ? config.jsonManipulator : jsonManipulator();
+        displayClass = (config.display) ? config.display : display();
+        fileReaderClass = (config.fileReader) ? config.fileReader : fileReader();
     }
 
     async function generatorList() {

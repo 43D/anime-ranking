@@ -16,8 +16,8 @@ export function musicChoose() {
 
 
     function init(config = {}) {
-        mediaClass = (config.media) ? config.media() : media();
-        displayClass = (config.display) ? config.display() : display();
+        mediaClass = (config.media) ? config.media : media();
+        displayClass = (config.display) ? config.display : display();
     }
 
     function setOption(optionSelected) {

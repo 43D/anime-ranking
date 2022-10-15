@@ -7,7 +7,7 @@ let importJsonClass;
 export function eventos() {
 
     function init(config = {}) {
-        displayClass = (config.display) ? config.display() : display();
+        displayClass = (config.display) ? config.display : display();
         importJsonClass = (config.importJson) ? config.importJson : importJson();
     }
 
