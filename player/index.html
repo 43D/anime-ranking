@@ -57,9 +57,9 @@
                                     Músicas
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Por nome</a></li>
-                                    <li><a class="dropdown-item" href="#">Por anime</a></li>
-                                    <li><a class="dropdown-item" href="#">Por Season</a></li>
+                                    <li><a class="dropdown-item" href="#" id="music-name">Por nome</a></li>
+                                    <li><a class="dropdown-item" href="#" id="music-anime">Por anime</a></li>
+                                    <li><a class="dropdown-item" href="#" id="music-season">Por Season</a></li>
                                 </ul>
                             </li>
 
@@ -69,9 +69,9 @@
                                     PlayLists
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Suas PlayLists</a></li>
-                                    <li><a class="dropdown-item" href="#">Criar uma PlayList</a></li>
-                                    <li><a class="dropdown-item" href="/animes/import">Importar uma Playlist</a></li>
+                                    <li><a class="dropdown-item" href="#" id="playlist">Suas PlayLists</a></li>
+                                    <li><a class="dropdown-item" href="#" id="new-playlist">Criar uma PlayList</a></li>
+                                    <li><a class="dropdown-item" href="/animes/import" id="import-playlist">Importar uma Playlist</a></li>
                                 </ul>
                             </li>
 
@@ -81,7 +81,7 @@
                         </ul>
                         <form class="d-flex" role="search" action="javascript:void(0);">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <button class="btn btn-outline-success" type="submit" id="btn-search">Search</button>
                         </form>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
     </div>
     <div class="container-fluid" style="min-height: 65vh;">
         <div class="row" style="margin-top: 125px; margin-bottom: 135px;">
-            <div class="col">
+            <div class="col tela" id="display-music-name">
                 <h4>A</h4>
                 <p>Lista por musica</p>
                 <ul class="list-group">
@@ -172,7 +172,7 @@
 
                 </ul>
             </div>
-            <div class="col-12">
+            <div class="col-12 tela d-none" id="display-playlist">
                 <h4>A</h4>
                 <p>Lista por playlist</p>
                 <ul class="list-group">

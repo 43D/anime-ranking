@@ -9,19 +9,17 @@ export function display() {
         eventsClass.start();
     }
 
-
-    function exibirImport() {
-        $("#divOptions").addClass("d-none");
-        $("#divImport").removeClass("d-none");
+    function displayHiddenAll(){
+        $(".tela").addClass("d-none");
     }
 
-    function exibirList() {
-        $("#divImport").addClass("d-none");
-        $("#divList").removeClass("d-none");
+    function displayShowById(id = "") {
+        displayHiddenAll();
+        $("#"+ id).removeClass("d-none");
     }
 
     return {
         init,
-        exibirImport
+        displayShowById
     }
 }
