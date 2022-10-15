@@ -79,7 +79,7 @@
                                 <a class="nav-link" href="#">JSON Rapido</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search">
+                        <form class="d-flex" role="search" action="javascript:void(0);">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
@@ -95,58 +95,77 @@
                 src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
 
         </div>
+        <div class="d-none">
+            <audio src="">do..</audio>
+        </div>
     </div>
     <div class="container-fluid" style="min-height: 65vh;">
         <div class="row" style="margin-top: 125px; margin-bottom: 135px;">
-            <p><i class="bi bi-pause"></i></p>
-            <br>?aaaaaa
-            <br>?aaaaa
-            <br>?aaaa
-            <br>?aa
-            <br>?a
-            <br>?a
-            <br>?a
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?
-            <br>?aaaaa
-            <br>?aaaaa
-            <br>?aaaaa
-            <br>?aaaaa
-            <br>?aaaaa
-            <br>?aaaaa
-            <br>?aaaa
-            <br>?aaa
-            <br>?aa
-            <br>?a
-            <br>aa
+            <div class="col">
+                <h4>A</h4>
+                <p>Lista por musica</p>
+                <ul class="list-group">
+                    <li class="list-group-item ">
+                        <div class="row">
+                            <div class="col-2 col-sm-1 border-end  d-flex align-items-center">
+                                <button class="btn w-100"><i class="bi bi-play"></i></button>
+                            </div>
+                            <div class="col-10 col-sm d-flex justify-content-start align-items-center" data-bs-toggle="collapse" data-bs-target="#detalhe-1">
+                                <span>A To the Grand Line! To the Grand Line! To the Grand Line!</span>
+                            </div>
+                            <div class="col-10 col-sm-2 col-lg-1 d-flex align-items-center" data-bs-toggle="collapse" data-bs-target="#detalhe-1">
+                                <span>(01:59)</span>
+                            </div>
+                            <div class="col-2 col-sm-1 d-flex align-items-center justify-content-end" data-bs-toggle="collapse" data-bs-target="#detalhe-1">
+                                <span><i class="bi bi-three-dots"></i></span>
+                            </div>
+                        </div>
+                        <input class="song-id" type="hidden" id="26">
+
+                        <div id="detalhe-1" class="collapse">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:0px;" id="music-iframe-td" width="100%" colspan="4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Song</th>
+                                        <td colspan=>偉大なる海路へ!</td>
+                                        <th>Artista</th>
+                                        <td >#21</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type</th>
+                                        <td>Insert</td>
+                                        <th>Data</th>
+                                        <td>Winter 2022</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Anime</th>
+                                        <td>る海路へ!</td>
+                                        <td colspan="2">One Piece</td>
+                                    </tr>
+                                    <tr>
+                                        <th>List</th>
+                                        <td>malへ!</td>
+                                        <td>ani</td>
+                                        <td>kitsuid</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
         </div>
     </div>
     <div class="fixed-bottom bg-light border-top">
         <div class="container-fluid">
             <div class="row py-3">
-                <div class="col-12 col-md-6  my-1 col-lg-5 col-xl-4">
+                <form action="javascript:void(0);" class="col-12 col-md-6  my-1 col-lg-5 col-xl-4">
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-outline-secondary border rounded-circle"
                             data-bs-toggle="collapse" data-bs-target="#collapseVideo" aria-expanded="false"
@@ -174,7 +193,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="col my-1">
                     <div class="ui-seekbar px-3 d-flex h-100 justify-content-center flex-column">
                         <input type="range" class="ui-slider w-100" min="1" max="12000" value="35">
