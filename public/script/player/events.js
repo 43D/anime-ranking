@@ -9,6 +9,18 @@ export function events() {
 
     function start() {
         createButtonAction();
+        muteActionMod();
+        createButtonCollapse();
+    }
+
+    function muteActionMod() {
+        $('#volume-mute').click(function (e) {
+            e.stopPropagation();
+        });
+    }
+
+    function createButtonCollapse() {
+        buttonCollapse("btn-video-collapse", "display-video");
     }
 
     function createButtonAction() {
@@ -23,6 +35,12 @@ export function events() {
     function buttonAction(btn = "", id = "") {
         $("#" + btn).click(function () {
             displayClass.displayShowById(id);
+        });
+    }
+
+    function buttonCollapse(btn = "", idDisplay = "") {
+        $("#" + btn).click(function () {
+            displayClass.displayMainShowById(idDisplay);
         });
     }
 
