@@ -92,7 +92,7 @@
     <div id="display-video" class="container-fluid displays d-none" style="height: calc(100vh - 185px);">
         <div class="row bg-dark h-100" style="margin-top: 105px;">
             <div class="col-12 h-100 p-0 bg-dark">
-                <div class="h-100 collapse" id="collapseVideo">
+                <div class="h-100" id="collapseVideo">
                     <div class="h-100 d-flex justify-content-center flex-column">
                         <video class="h-100"
                             src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video>
@@ -103,6 +103,13 @@
                     <audio src="">do..</audio>
 
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="display-list" class="container-fluid displays d-none">
+        <div class="row h-100" style="margin-top: 125px; margin-bottom: 135px; ">
+            <div class="col-12 h-100 p-0" id="list-collapse">
+                aaa
             </div>
         </div>
     </div>
@@ -252,9 +259,8 @@
                 <form action="javascript:void(0);" class="col-12 col-md-6  my-1 col-lg-5 col-xl-4">
                     <div class="d-flex justify-content-center">
                         <button id="btn-video-collapse" type="button"
-                            class="btn btn-outline-secondary border rounded-circle" data-bs-toggle="collapse"
-                            data-bs-target="#collapseVideo" aria-expanded="false" aria-controls="collapseVideo"><i
-                                class="bi bi-film"></i></button>
+                            class="btn btn-outline-secondary border rounded-circle">
+                            <i class="bi bi-film"></i></button>
                         <button type="button" class="mx-1 btn btn-outline-secondary border rounded-circle"><i
                                 class="bi bi-shuffle"></i> </button>
                         <button type="button" class="mx-1 btn btn-outline-secondary border rounded-circle"><i
@@ -286,7 +292,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-3 col-xl-2">
-                    <button class="btn btn-outline-secondary w-100">Lista de reprodução</button>
+                    <button id="btn-list-collapse" class="btn btn-outline-secondary w-100">Lista de reprodução</button>
                 </div>
             </div>
         </div>

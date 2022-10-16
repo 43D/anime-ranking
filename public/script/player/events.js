@@ -20,7 +20,8 @@ export function events() {
     }
 
     function createButtonCollapse() {
-        buttonCollapse("btn-video-collapse", "display-video");
+        buttonCollapse("btn-video-collapse", "display-video", "collapseVideo");
+        buttonCollapse("btn-list-collapse", "display-list", "list-collapse");
     }
 
     function createButtonAction() {
@@ -38,8 +39,9 @@ export function events() {
         });
     }
 
-    function buttonCollapse(btn = "", idDisplay = "") {
+    function buttonCollapse(btn = "", idDisplay = "", collapse = "") {
         $("#" + btn).click(function () {
+            $("#"+collapse).show();
             displayClass.displayMainShowById(idDisplay);
         });
     }
