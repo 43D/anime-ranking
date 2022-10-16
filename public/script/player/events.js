@@ -31,6 +31,7 @@ export function events() {
         buttonAction("playlist", "display-playlist");
         buttonAction("new-playlist", "display-new-playlist");
         buttonAction("btn-search", "display-search");
+        buttonAction("btn-json-fast", "display-json-fast");
     }
 
     function buttonAction(btn = "", id = "") {
