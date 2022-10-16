@@ -36,6 +36,7 @@ export function events() {
 
     function buttonAction(btn = "", id = "") {
         $("#" + btn).click(function () {
+            $("#musicbarNav").removeClass("show")
             displayClass.displayShowById(id);
         });
     }
