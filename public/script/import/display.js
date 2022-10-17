@@ -12,9 +12,15 @@ export function display() {
         $("#divList").removeClass("d-none");
     }
 
+    function exibirFinal(){
+        $("#divFinal").removeClass("d-none");
+        $("#divList").addClass("d-none");
+    }
+
     return {
         init,
         exibirImport,
-        exibirList
+        exibirList,
+        exibirFinal
     }
 }

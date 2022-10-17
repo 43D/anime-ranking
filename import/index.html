@@ -68,7 +68,7 @@
                 <div class="mb-3">
                     <label for="urlJson" class="form-label">Via link</label>
                     <input type="text" class="form-control" placeholder="https://.json" aria-label="https://.json"
-                        aria-describedby="basic-addon1" id="urlJson">
+                        aria-describedby="basic-addon1" id="urlJson" value="http://127.0.0.1:2001/animes/teste.json ">
                 </div>
                 OR
                 <div class="mb-3">
@@ -84,55 +84,44 @@
             </form>
         </div>
         <div class="row d-none" id="divList">
-            <table class="table table-hover  table-striped">
-                <form action="javascript:void(0);" class="my-5">
-                    <thead>
-                        <tr>
-                            <th scope="col">Selecione</th>
-                            <th scope="col">Música</th>
-                            <th scope="col">Anime</th>
-                            <th scope="col">Audio</th>
-                            <th scope="col">MyAnimeList</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="tbody">
-                        <tr>
-                            <td>
-                                <div>
-                                    <input type="checkbox" class="checkbox" name="a" id="a">
-                                </div>
-                            </td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div>
-                                    <input type="checkbox" class="checkbox" name="a" id="a">
-                                </div>
-                            </td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                        </tr>
-                    </tbody>
-            </table>
-            <div class="text-center">
-                <input type="checkbox" class="checkbox" name="newPlaylist" id="newPlaylist">
-                <label class="form-check-label" for="newPlaylist">
-                    Nova PlayList??
-                </label>
-                <br>
-                <input type="text" class="form-control" name="newPlaylistName" id="newPlaylistName" disabled>
-                <br>
-                <button class="btn btn-outline-success">Salvar</button>
-                <button class="btn btn-outline-danger">Não salvar</button>
-            </div>
+            <form action="javascript:void(0);" class="my-5">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Selecione</th>
+                                <th scope="col">Música</th>
+                                <th scope="col">Anime</th>
+                                <th scope="col">Audio</th>
+                                <th scope="col">MyAnimeList</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody id="tbody">
+    
+    
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    <input type="checkbox" name="newPlaylist" id="newPlaylist">
+                    <label class="form-check-label" for="newPlaylist">
+                        Nova PlayList??
+                    </label>
+                    <br>
+                    <input type="text" class="form-control" name="newPlaylistName" id="newPlaylistName" disabled>
+                    <br>
+                    <button class="btn btn-outline-success" id="btnSalvar">Salvar</button>
+                    <button class="btn btn-outline-danger">Não salvar</button>
+                </div>
             </form>
+        </div>
+        <div class="row d-none" id="divFinal">
+            <div class="text-center div-height d-flex justify-content-center flex-column" style="min-height: 65vh;">
+                <h4>Tudo OK</h4>
+                <p>Acesse player de música.</p>
+                <a class="btn btn-success" href="/animes/player">Player Music</a>
+            </div>
         </div>
     </div>
     <footer class="text-center bg-light mt-5">
