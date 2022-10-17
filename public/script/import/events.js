@@ -27,12 +27,14 @@ export function eventos() {
     function btnConfirm() {
         $("#btnConfirmForm").click(async function () {
             const json = importJsonClass.getJson();
-            await json.getAMQ();
-            const data = await json.getData();
-            importJsonClass.setList(data);
-            importJsonClass.makeTable();
-            importJsonClass.confirmar();
-            makeDatePlaylist();
+            const res = await json.getAMQ();
+            if (res != undefined) {
+                const data = await json.getData();
+                importJsonClass.setList(data);
+                importJsonClass.makeTable();
+                importJsonClass.confirmar();
+                makeDatePlaylist();
+            }
         });
     }
 
@@ -48,7 +50,7 @@ export function eventos() {
             hour12: false
         });
 
-        $("#newPlaylistName").val(time);
+        $("#newPlaylistName").val(time.replaceAll("/", "-").replaceAll(" ", "-").replaceAll(":", "-"));
     }
 
     function btnSalvar() {
