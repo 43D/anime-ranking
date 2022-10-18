@@ -1,0 +1,89 @@
+{
+    "config": {
+        "volume": 1.0,
+        "lastMusic": "13"
+    },
+    "musics": {
+        "0": {
+            "name": "Aaaa",
+            "artist": "Aaaa",
+            "season": "Aaaa",
+            "year": "2022",
+            "anime": [
+                "en",
+                "romaji"
+            ],
+            "urls": {
+                "0": "mp3",
+                "480": "mp4",
+                "720": "mp4"
+            },
+            "malID": "014514",
+            "type": "Insert Song",
+            "broadcast": "tv"
+        }
+    },
+    "musicsName": {
+        "a": [
+            "0",
+            "1",
+            "2"
+        ],
+        "b": [
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    "musicsAnime": {
+        "MAL id": [
+            "0",
+            "1",
+            "2"
+        ],
+        "014514": [
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    "musicsSeason": {
+        "2022/04": [
+            "0",
+            "1",
+            "2"
+        ],
+        "2022/03": [
+            "3",
+            "4",
+            "5"
+        ]
+    },
+    "playlists": {
+        "0": {
+            "name": "Aaaa",
+            "musics": [
+                "0",
+                "1",
+                "4"
+            ]
+        }
+    },
+    "currentPlayList": {
+        "list": [
+            "2",
+            "4",
+            "5"
+        ]
+    },
+    "theme": {
+        "theme": "light-mode"
+    },
+    "language": {
+        "language": [
+            "pt",
+            "en"
+        ],
+        "currentLanguage": "pt"
+    }
+}

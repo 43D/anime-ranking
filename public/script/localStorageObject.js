@@ -1,7 +1,11 @@
 export function localStorageObject() {
+    const config = "config";
     const musics = "musics";
+    const musicsName = "musicsName";
+    const musicsAnime = "musicsAnime";
+    const musicsSeason = "musicsSeason";
     const playlists = "playlists";
-    const fastPlayer = "fastPlayer";
+    const currentPlayList = "currentPlayList";
     const theme = "theme";
     const language = "language";
 
@@ -28,8 +32,8 @@ export function localStorageObject() {
         return getLocalStorage(playlists);
     }
 
-    function getFastPlayer() {
-        return getLocalStorage(fastPlayer);
+    function getCurrentPlayList() {
+        return getLocalStorage(currentPlayList);
     }
     function getTheme() {
         return getLocalStorage(theme);
@@ -44,8 +48,8 @@ export function localStorageObject() {
         return setLocalStorage(playlists, json);
     }
 
-    function setFastPlayer(json) {
-        return setLocalStorage(fastPlayer, json);
+    function setCurrentPlayList(json) {
+        return setLocalStorage(currentPlayList, json);
     }
     function setTheme(json) {
         return setLocalStorage(theme, json);
@@ -54,17 +58,51 @@ export function localStorageObject() {
         return setLocalStorage(language, json);
     }
 
+    function setConfig(json) {
+        return setLocalStorage(config, json);
+    }
+
+    function getConfig() {
+        return getLocalStorage(config);
+    }
+
+    function setMusicsName(json) {
+        return setLocalStorage(musicsName, json);
+    }
+    function getMusicsName() {
+        return getLocalStorage(musicsName);
+    }
+    function setMusicsAnime(json) {
+        return setLocalStorage(musicsAnime, json);
+    }
+    function getMusicsAnime() {
+        return getLocalStorage(musicsAnime);
+    }
+    function setMusicsSeason(json) {
+        return setLocalStorage(musicsSeason, json);
+    }
+    function getMusicsSeason() {
+        return getLocalStorage(musicsSeason);
+    }
     return {
         getMusics,
         getPlayLists,
-        getFastPlayer,
+        getCurrentPlayList,
         getTheme,
         getLanguage,
+        getConfig,
+        getMusicsAnime,
+        getMusicsName,
+        getMusicsSeason,
         setMusics,
         setPlayLists,
-        setFastPlayer,
+        setCurrentPlayList,
         setTheme,
-        setLanguage
+        setLanguage,
+        setConfig,
+        setMusicsAnime,
+        setMusicsName,
+        setMusicsSeason
     }
 
 }

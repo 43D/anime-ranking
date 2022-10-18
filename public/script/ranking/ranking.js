@@ -5,7 +5,9 @@ import { events } from "./events.js";
 import { display } from "./display.js";
 import { jsonManipulator } from "../jsonManipulator.js";
 import { theme } from "../theme.js";
+import { defaultConfigs } from "../defaultConfigs.js";
 
+let defaultConfigsClass;
 let themeClass;
 let jsonManClass;
 let formClass;
@@ -24,6 +26,8 @@ export function ranking() {
     themeClass = theme();
 
     function init() {
+        defaultConfigsClass = defaultConfigs();
+        defaultConfigsClass.init();
         displayClass.init({formClass});
         formClass.init({jsonManClass});
         eventsClass.init({displayClass, formClass, musicChooseClass});

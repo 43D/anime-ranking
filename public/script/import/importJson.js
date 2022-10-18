@@ -3,18 +3,26 @@ import { display } from "./display.js";
 import { theme } from "../theme.js";
 import { jsonManipulator } from "../jsonManipulator.js";
 import { fileReader } from "../fileReader.js";
+import { localStorageObject } from "../localStorageObject.js";
+import { defaultConfigs } from "../defaultConfigs.js";
+import { saveJson } from "./saveJson.js";
 
+let saveJsonClass;
+let defaultConfigsClass;
 let fileReaderClass;
 let jsonManClass;
 let eventsClass;
 let displayClass;
 let themeClass;
+let localStorageObjectClass;
 export function importJson() {
 
     let data;
     let musicChoose;
 
     function init() {
+        defaultConfigsClass = defaultConfigs();
+        defaultConfigsClass.init();
         themeClass = theme();
         displayClass = display();
         eventsClass = eventos();
@@ -22,6 +30,9 @@ export function importJson() {
         eventsClass.start();
         jsonManClass = jsonManipulator();
         fileReaderClass = fileReader();
+        localStorageObjectClass = localStorageObject();
+        saveJsonClass = saveJson();
+
     }
 
     function confirmar() {
@@ -44,7 +55,7 @@ export function importJson() {
     }
 
     function saveList(){
-
+        saveJsonClass.make(data, musicChoose);
     }
 
     return {
