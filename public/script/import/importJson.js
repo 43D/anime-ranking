@@ -32,6 +32,7 @@ export function importJson() {
         fileReaderClass = fileReader();
         localStorageObjectClass = localStorageObject();
         saveJsonClass = saveJson();
+        saveJsonClass.init();
 
     }
 
@@ -55,7 +56,9 @@ export function importJson() {
     }
 
     function saveList(){
-        saveJsonClass.make(data, musicChoose);
+        const playlist = $("#newPlaylist").is(':checked');
+        const name = $("#newPlaylistName").val();
+        saveJsonClass.make(data, musicChoose, playlist, name);
     }
 
     return {
