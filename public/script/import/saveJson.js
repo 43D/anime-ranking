@@ -12,12 +12,15 @@ export function saveJson() {
         localStorageClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
     }
 
-    function make(obj, objChoose, playlist, name) {
+    function getMusics(){
         allMusics = localStorageClass.getMusics();
         allMusicsByAnime = localStorageClass.getMusicsAnime();
         allMusicsByName = localStorageClass.getMusicsName();
         allMusicsBySeason = localStorageClass.getMusicsSeason();
+    }
 
+    function make(obj, objChoose, playlist, name) {
+        getMusics();
         let list = [];
 
         for (let i = 0; i < objChoose.length; i++) {
@@ -118,13 +121,3 @@ export function saveJson() {
         init
     }
 }
-
-// getMusics,
-// getPlayLists,
-// getCurrentPlayList,
-// getTheme,
-// getLanguage,
-// getConfig,
-// getMusicsAnime,
-// getMusicsName,
-// getMusicsSeason,

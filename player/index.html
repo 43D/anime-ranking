@@ -71,7 +71,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#" id="playlist">Suas PlayLists</a></li>
                                     <li><a class="dropdown-item" href="#" id="new-playlist">Criar uma PlayList</a></li>
-                                    <li><a class="dropdown-item" target="_blank" href="/animes/import" id="import-playlist">Importar uma
+                                    <li><a class="dropdown-item" target="_blank" href="/animes/import"
+                                            id="import-playlist">Importar uma
                                             Playlist</a></li>
                                 </ul>
                             </li>
@@ -107,84 +108,22 @@
         </div>
     </div>
     <div id="display-list" class="container-fluid displays d-none">
-        <div class="row h-100" style="margin-top: 125px; margin-bottom: 135px; ">
+        <div class="row h-100" style="margin-top: 125px; margin-bottom: 180px; ">
             <div class="col-12 h-100 p-0" id="list-collapse">
                 aaa
             </div>
         </div>
     </div>
     <div id="display-main" class="container-fluid displays" style="min-height: 65vh;">
-        <div class="row" style="margin-top: 125px; margin-bottom: 135px;">
+        <div class="row" style="margin-top: 125px; margin-bottom: 180px;">
             <div class="col tela" id="display-music-name">
-                <h4>A</h4>
-                <p>Lista por musica</p>
-                <ul class="list-group">
-                    <li class="list-group-item ">
-                        <div class="row">
-                            <div class="col-2 col-sm-1 border-end  d-flex align-items-center">
-                                <button class="btn w-100"><i class="bi bi-play"></i></button>
-                            </div>
-                            <div class="col-10 col-sm d-flex justify-content-start align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#musica-1">
-                                <span>A To the Grand Line! To the Grand Line! To the Grand Line!</span>
-                            </div>
-                            <div class="col-10 col-sm-2 col-lg-1 d-flex align-items-center" data-bs-toggle="collapse"
-                                data-bs-target="#musica-1">
-                                <span>(01:59)</span>
-                            </div>
-                            <div class="col-2 col-sm-1 d-flex align-items-center justify-content-end border-start">
-                                <button class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-three-dots"></i>
-                                </button>
-                                <ul class="dropdown-menu" style="z-index: 1035;">
-                                    <li data-bs-toggle="collapse" data-bs-target="#musica-1">
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bi bi-collection"></i> Exibir Lista
-                                        </a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-box-arrow-down"></i> JSON</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-x-lg"></i> Remover</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input class="song-id" type="hidden" id="26">
-
-                        <div id="musica-1" class="collapse">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td style="padding:0px;" id="music-iframe-td" width="100%" colspan="4"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Song</th>
-                                        <td colspan=>偉大なる海路へ!</td>
-                                        <th>Artista</th>
-                                        <td>#21</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Type</th>
-                                        <td>Insert</td>
-                                        <th>Data</th>
-                                        <td>Winter 2022</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Anime</th>
-                                        <td>る海路へ!</td>
-                                        <td colspan="2">One Piece</td>
-                                    </tr>
-                                    <tr>
-                                        <th>List</th>
-                                        <td>malへ!</td>
-                                        <td>ani</td>
-                                        <td>kitsuid</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </li>
-
-                </ul>
+                
+            </div>
+            <div class="col-12 tela d-none" id="display-music-anime">
+                musica anime
+            </div>
+            <div class="col-12 tela d-none" id="display-music-season">
+                musica season
             </div>
             <div class="col-12 tela d-none" id="display-playlist">
                 <h4>A</h4>
@@ -251,12 +190,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 tela d-none" id="display-music-anime">
-                musica anime
-            </div>
-            <div class="col-12 tela d-none" id="display-music-season">
-                musica season
-            </div>
             <div class="col-12 tela d-none" id="display-new-playlist">
                 new playlist UI
             </div>
@@ -303,7 +236,7 @@
                 <div class="col-12 col-sm my-1">
                     <div class="ui-seekbar px-3 d-flex h-100 justify-content-center flex-column">
                         <input type="range" class="ui-slider w-100" min="1" max="12000" value="35">
-                        <p class="h-100"> <span id="time">00:00</span> - <span>nome da música aaaaaaaaaaa</span> </p>
+                        <p class="h-100 mb-0"> <span id="time">00:00</span> - <span>nome da música aaaaaaaaaaa</span> </p>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3 col-xl-2">
