@@ -21,13 +21,15 @@ export function getMusicsFromLS() {
 
     function start() {
         makeItensMusic("display-music-name", musicsByName, "name");
+        makeItensMusic("display-music-anime", musicsByAnime, "anime");
+        makeItensMusic("display-music-season", musicsBySeason, "season");
     }
 
-    function makeItensMusic(id, musics, typeList) {
+    function makeItensMusic(id, musicsId, typeList) {
         let list = [];
-        Object.keys(musics).sort().forEach(function (k) {
+        Object.keys(musicsId).sort().forEach(function (k) {
             let listMusics = [];
-            musics[k].forEach(function (k) {
+            musicsId[k].forEach(function (k) {
                 listMusics[listMusics.length] = getNameItem(k);
             });
             listMusics.sort(function (a, b) {
@@ -37,7 +39,13 @@ export function getMusicsFromLS() {
                 list[list.length] = makeItem(Object.keys(k)[0], typeList);
             });
 
-            makeList(id, list, k);
+            if (typeList == "anime")
+                makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
+            else if (typeList == "season")
+                makeList(id, list, musics[musicsId[k][0]].season);
+            else
+                makeList(id, list, k);
+
             list = [];
         });
 
@@ -96,6 +104,7 @@ export function getMusicsFromLS() {
     function makeOptionMusicList(idMusic, typeList) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
         ul.append(makeLiDropdown("addMusic", "bi bi-plus-lg", "Adicionar na fila", typeList + "-add-music-" + idMusic));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", typeList + "-playlist-music-" + idMusic));
         ul.append(makeLiDropdown("", "bi bi-collection", "Exibir Lista").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
         ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", typeList + "-down-music-" + idMusic));
         ul.append(makeLiDropdown("removeMusic", "bi bi-x-lg", "Remover", typeList + "-remove-music-" + idMusic));
@@ -180,8 +189,8 @@ export function getMusicsFromLS() {
 
     function makeList(id, li = [$("<li>")], title, subTitle = "") {
         let mainDiv = $("<div>");
-        let h4 = $("<h4>").html(title);
-        let h6 = $("<h6>").html(subTitle);
+        let h4 = $("<h4>").addClass("mt-4 ms-3").html(title);
+        let h6 = $("<h6>").addClass("mb-2 ms-3").html(subTitle);
         mainDiv.append(h4);
         if (subTitle != "")
             mainDiv.append(h6);
