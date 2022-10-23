@@ -34,14 +34,14 @@ export function musicManager() {
         else
             keys.sort().forEach(function (k) {
                 let listMusics = [];
-                musicsId[k].forEach(function (k) {
-                    listMusics[listMusics.length] = getNameItem(k);
+                musicsId[k].forEach(function (j) {
+                    listMusics[listMusics.length] = getNameItem(j);
                 });
                 listMusics.sort(function (a, b) {
                     return compareMusic(a[Object.keys(a)[0]], b[Object.keys(b)[0]]);
                 });
-                listMusics.forEach(function (k) {
-                    list[list.length] = makeItem(Object.keys(k)[0], typeList);
+                listMusics.forEach(function (j) {
+                    list[list.length] = makeItem(Object.keys(j)[0], typeList);
                 });
                 if (typeList == "anime")
                     makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
