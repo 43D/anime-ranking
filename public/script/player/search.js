@@ -66,7 +66,9 @@ export function search() {
 
     function notFound() {
         const h4 = $("<h4>").addClass("text-center mt-4").html("Digite algo para pesquisar!!!");
+        const p = $("<p>").addClass("text-center").html("Ex: Música, artista, anime, ano, etc...");
         $("#display-search").append(h4);
+        $("#display-search").append(p);
     }
 
     function makeDisplay(list) {
