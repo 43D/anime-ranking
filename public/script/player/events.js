@@ -71,8 +71,38 @@ export function events() {
         });
     }
 
+    function actionUrl(url) {
+        switch (url) {
+            case "json":
+                $("#btn-json-fast").click();
+                break;
+            case "music-name":
+                $("#music-name").click();
+                break;
+            case "music-anime":
+                $("#music-anime").click();
+                break;
+            case "music-season":
+                $("#music-season").click();
+                break;
+            case "playlist":
+                $("#playlist").click();
+                break;
+            case "new-playlist":
+                $("#new-playlist").click();
+                break;
+            case "search":
+                $("#btn-search").click();
+                break;
+            default:
+                $("#music-name").click();
+                break;
+        }
+    }
+
     return {
         init,
-        start
+        start,
+        actionUrl
     }
 }

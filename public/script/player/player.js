@@ -22,10 +22,16 @@ export function player() {
         musicManagerClass.init();
         playlistManagerClass = playlistManager();
         playlistManagerClass.init();
+        getParam();
     }
 
-    function newPlayList(name){
-        console.log(name)
+    function newPlayList(name) {
+        playlistManagerClass.newPlayList(name);
+    }
+
+    function getParam() {
+        const url = window.location.hash.split("fast=")[1];
+        displayClass.actionUrl(url);
     }
 
     return {
