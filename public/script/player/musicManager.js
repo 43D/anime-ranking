@@ -237,14 +237,3 @@ export function musicManager() {
         reload
     }
 }
-
-
-        // getMusics,
-// getPlayLists,
-// getCurrentPlayList,
-// getTheme,
-// getLanguage,
-// getConfig,
-// getMusicsAnime,
-// getMusicsName,
-// getMusicsSeason,

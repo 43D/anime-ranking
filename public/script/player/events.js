@@ -35,7 +35,6 @@ export function events() {
         buttonAction("music-anime", "display-music-anime");
         buttonAction("music-season", "display-music-season");
         buttonAction("playlist", "display-playlist");
-        buttonAction("btn-search", "display-search");
         buttonAction("btn-json-fast", "display-json-fast");
     }
 
@@ -101,9 +100,18 @@ export function events() {
         }
     }
 
-    function reload(){
-        $("#reload").click(function(){
+    function reload() {
+        $("#reload").click(function () {
+            $("#musicbarNav").removeClass("show");
             playerClass.reload();
+        });
+    }
+
+    function reload() {
+        $("#btn-search").click(function () {
+            $("#musicbarNav").removeClass("show");
+            displayClass.displayShowById("display-search");
+            playerClass.searchAction();
         });
     }
 
