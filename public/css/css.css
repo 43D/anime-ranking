@@ -38,6 +38,15 @@ body.dark-mode{
     }
 }
 
+@media screen and (min-width: 990px) {
+    /* 6 */
+    .navbar-toggler-custom {
+        display: none;
+    }
+}
+
+
+
 @media screen and (max-width: 575px) {
     /* 12 */
     .vh-80 {
