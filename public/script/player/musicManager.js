@@ -2,7 +2,7 @@ import { localStorageObject } from "../localStorageObject.js";
 
 let localStorageClass;
 
-export function getMusicsFromLS() {
+export function musicManager() {
     let musics = {};
     let musicsByAnime = {};
     let musicsByName = {};

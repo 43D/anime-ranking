@@ -2,9 +2,11 @@
 import { theme } from "../theme.js";
 import { display } from "./display.js";
 import { defaultConfigs } from "../defaultConfigs.js";
-import { getMusicsFromLS } from "./getMusicsFromLS.js";
+import { musicManager } from "./musicManager.js";
+import { playlistManager } from "./playlistManager.js";
 
-let getMusicsFromLSClass;
+let musicManagerClass;
+let playlistManagerClass;
 let defaultConfigsClass;
 let themeClass;
 let displayClass;
@@ -16,8 +18,10 @@ export function player() {
         themeClass = theme();
         displayClass = display();
         displayClass.init({ "player": this });
-        getMusicsFromLSClass = getMusicsFromLS();
-        getMusicsFromLSClass.init();
+        musicManagerClass = musicManager();
+        musicManagerClass.init();
+        playlistManagerClass = playlistManager();
+        playlistManagerClass.init();
     }
 
     function newPlayList(name){
