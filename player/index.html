@@ -44,8 +44,9 @@
         </nav>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <button class="navbar-toggler-custom btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#musicbarNav"
-                    aria-controls="musicbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler-custom btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#musicbarNav" aria-controls="musicbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <i class="bi bi-play"></i> Player menu
                 </button>
                 <div class="collapse navbar-collapse" id="musicbarNav">
@@ -86,15 +87,17 @@
                                 <a class="nav-link" href="#fast=json" id="btn-json-fast">JSON Rapido</a>
                             </li>
                         </ul>
-                        <form class="d-flex" role="search" action="javascript:void(0);">
+                        <form class="d-flex" role="search" action="#fast=search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit" id="btn-search">Search</button>
                         </form>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-outline-secondary" id="reload"><i class="bi bi-arrow-repeat"> Recarregar</i></button>
-                    <button class="btn btn-outline-secondary" id="configs"><i class="bi bi-gear"> Configs</i></button>
+                    <button class="btn btn-outline-secondary" id="reload"><i class="bi bi-arrow-repeat">
+                            Recarregar</i></button>
+                    <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#configsModal"
+                        id="configs"><i class="bi bi-gear"></i></button>
                 </div>
             </div>
         </nav>
@@ -158,13 +161,44 @@
                 </div>
             </div>
             <div class="col-12 tela d-none" id="display-edit-playlist">
-                edit playlist
+                <div>
+                    <form action="javascript:void(0);" class="mt-5 mx-5 px-5">
+                        <label class="form-check-label" for="editPlaylist">
+                            Nome da Playlist:
+                        </label>
+                        <input type="text" class="form-control" name="editPlaylistName" id="editPlaylistName">
+                        <br>
+                        <div>lista</div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-success" id="btnSaveEditPlaylist">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
             <div class="col-12 tela d-none" id="display-json-fast">
-                json fast play
+                <form action="javascript:void(0);" class="mt-5 mx-5 px-5">
+                    <div class="mb-3">
+                        <label for="urlJson" class="form-label">Via link</label>
+                        <input type="text" class="form-control" placeholder="https://.json" aria-label="https://.json"
+                            aria-describedby="basic-addon1" id="urlJson"
+                            value="http://127.0.0.1:2001/animes/teste.json ">
+                    </div>
+                    OR
+                    <div class="mb-3">
+                        <label class="form-label" for="fileJson">Custom JSON</label>
+                        <input type="file" class="form-control" id="fileJson">
+                    </div>
+
+                    <div class="text-center">
+                        <button id="btnPlayJson" type="button"
+                            class=" btn btn-outline-success btn-lg my-5">Confirmar</button>
+                        <button id="btnClean" type="button" class=" btn btn-outline-danger btn-lg my-5">Limpar</button>
+                    </div>
+                </form>
             </div>
             <div class="col-12 tela d-none" id="display-search">
-                seu resultado aqui
+
             </div>
         </div>
     </div>
@@ -209,6 +243,25 @@
                 </div>
                 <div class="col-12 col-lg-3 col-xl-2">
                     <button id="btn-list-collapse" class="btn btn-outline-secondary w-100">Lista de reprodução</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modais">
+        <div class="modal fade" id="configsModal" tabindex="-1" aria-labelledby="configurações" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="configurações">Configurações</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
