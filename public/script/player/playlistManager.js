@@ -14,8 +14,31 @@ export function playlistManager() {
         start();
     }
 
-    function newPlaylist(name) {
-        console.log(name)
+    function newPlayList(name) {
+        const play =  { "name": name, musics: [] };
+        const keys = Object.keys(playlist);
+        let id = (Number(keys[keys.length - 1]) + 1).toString();
+        if (id == 'NaN')
+            id = "1";
+        makeObj(playlist, id, play);
+        localStorageClass.setPlayLists(playlist);
+        reload();
+    }
+
+    
+    function makeObj(obj, key, value) {
+        if (obj[key]) {
+            obj[key][obj[key].length] = value
+        } else {
+            obj[key] = [value];
+        }
+    }
+
+    function reload(){
+        $("#display-playlist").empty();
+        musics = localStorageClass.getMusics();
+        playlist = localStorageClass.getPlayLists();
+        start();
     }
 
     function start() {
@@ -159,6 +182,6 @@ export function playlistManager() {
 
     return {
         init,
-        newPlaylist
+        newPlayList
     }
 }

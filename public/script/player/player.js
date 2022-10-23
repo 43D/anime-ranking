@@ -26,7 +26,7 @@ export function player() {
     }
 
     function newPlayList(name) {
-        playlistManagerClass.newPlayList(name);
+        playlistManagerClass.newPlayList(name)
     }
 
     function getParam() {
