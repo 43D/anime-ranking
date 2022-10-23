@@ -27,27 +27,31 @@ export function getMusicsFromLS() {
 
     function makeItensMusic(id, musicsId, typeList) {
         let list = [];
-        Object.keys(musicsId).sort().forEach(function (k) {
-            let listMusics = [];
-            musicsId[k].forEach(function (k) {
-                listMusics[listMusics.length] = getNameItem(k);
-            });
-            listMusics.sort(function (a, b) {
-                return compareMusic(a[Object.keys(a)[0]], b[Object.keys(b)[0]]);
-            });
-            listMusics.forEach(function (k) {
-                list[list.length] = makeItem(Object.keys(k)[0], typeList);
-            });
+        const keys = Object.keys(musicsId);
 
-            if (typeList == "anime")
-                makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
-            else if (typeList == "season")
-                makeList(id, list, musics[musicsId[k][0]].season);
-            else
-                makeList(id, list, k);
+        if (keys.length == 0)
+            addWarning(id);
+        else
+            keys.sort().forEach(function (k) {
+                let listMusics = [];
+                musicsId[k].forEach(function (k) {
+                    listMusics[listMusics.length] = getNameItem(k);
+                });
+                listMusics.sort(function (a, b) {
+                    return compareMusic(a[Object.keys(a)[0]], b[Object.keys(b)[0]]);
+                });
+                listMusics.forEach(function (k) {
+                    list[list.length] = makeItem(Object.keys(k)[0], typeList);
+                });
+                if (typeList == "anime")
+                    makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
+                else if (typeList == "season")
+                    makeList(id, list, musics[musicsId[k][0]].season);
+                else
+                    makeList(id, list, k);
 
-            list = [];
-        });
+                list = [];
+            });
 
     }
 
@@ -69,6 +73,11 @@ export function getMusicsFromLS() {
 
     function makeIcon(icon) {
         return $('<i>').addClass(icon);
+    }
+
+    function addWarning(id) {
+        const h4 = $("<h4>").addClass("text-center mt-4").html("Não a nada aqui, acesse Import");
+        $("#" + id).append(h4);
     }
 
     function makeMenuMusic(idMusic, typeList) {
