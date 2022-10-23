@@ -192,7 +192,21 @@
                 </ul>
             </div>
             <div class="col-12 tela d-none" id="display-new-playlist">
-                
+                <div id="new-playlist-child" class="d-none d-flex justify-content-center flex-column" style="height: 50vh;">
+                    <form action="javascript:void(0);" class="mt-5 mx-5 px-5">
+                        <label class="form-check-label" for="newPlaylist">
+                            Nome da Playlist
+                        </label>
+                        <input type="text" class="form-control" name="newPlaylistName" id="newPlaylistName">
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-outline-success" id="btnSaveNewPlaylist">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="finish-playlist-child" class="d-none text-center d-flex justify-content-center flex-column" style="height: 50vh;">
+                    <h4>Tudo Ok. Clique em <i class="bi bi-three-dots"></i> para adicionar alguma música na playlist!!  </h4>
+                </div>
             </div>
             <div class="col-12 tela d-none" id="display-edit-playlist">
                 edit playlist

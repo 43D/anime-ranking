@@ -1,11 +1,14 @@
 import { events } from "./events.js";
+import { player } from "./player.js";
 
 let eventsClass;
+let playerClass;
 
 export function display() {
     function init(config = {}) {
+        playerClass = (config.player) ? config.player : player();
         eventsClass = (config.events) ? config.events : events();
-        eventsClass.init({ 'display': this });
+        eventsClass.init({ 'display': this, 'player': playerClass });
         eventsClass.start();
     }
 
@@ -13,7 +16,7 @@ export function display() {
         $(".tela").addClass("d-none");
     }
 
-    function displayShowById(id = "") {
+    function displayShowById(id) {
         displayHiddenAll();
         $("#" + id).removeClass("d-none");
     }
@@ -33,9 +36,14 @@ export function display() {
         $("#" + id).removeClass("d-none");
     }
 
+    function hiddenById(id) {
+        $("#" + id).addClass("d-none");
+    }
     return {
         init,
         displayShowById,
-        displayMainShowById
+        displayMainShowById,
+        showById,
+        hiddenById
     }
 }

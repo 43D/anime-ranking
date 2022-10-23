@@ -101,7 +101,7 @@ export function getMusicsFromLS() {
         divRow.append(div3);
 
         let div4 = $("<div>").addClass("col-2 col-sm-1 d-flex align-items-center justify-content-end border-start");
-        let btnMenu = $('<button>').addClass("btn").attr("data-bs-toggle", "dropdown").attr("aria-expanded", "false");
+        let btnMenu = $('<button>').addClass("btn w-100").attr("data-bs-toggle", "dropdown").attr("aria-expanded", "false");
         btnMenu.append(makeIcon("bi bi-three-dots"));
         div4.append(btnMenu);
         div4.append(makeOptionMusicList(idMusic, typeList));

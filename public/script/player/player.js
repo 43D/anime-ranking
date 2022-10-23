@@ -10,19 +10,23 @@ let themeClass;
 let displayClass;
 
 export function player() {
-
     function init() {
         defaultConfigsClass = defaultConfigs();
         defaultConfigsClass.init();
-        themeClass =  theme();
+        themeClass = theme();
         displayClass = display();
-        displayClass.init();
+        displayClass.init({ "player": this });
         getMusicsFromLSClass = getMusicsFromLS();
         getMusicsFromLSClass.init();
     }
 
+    function newPlayList(name){
+        console.log(name)
+    }
+
     return {
-        init
+        init,
+        newPlayList
     }
 
 }
