@@ -34,9 +34,14 @@ export function player() {
         displayClass.actionUrl(url);
     }
 
+    function reload(){
+        musicManagerClass.reload();
+        playlistManagerClass.reload();
+    }
     return {
         init,
-        newPlayList
+        newPlayList,
+        reload
     }
 
 }

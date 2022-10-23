@@ -182,6 +182,7 @@ export function playlistManager() {
 
     return {
         init,
-        newPlayList
+        newPlayList,
+        reload
     }
 }

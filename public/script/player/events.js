@@ -16,6 +16,7 @@ export function events() {
         createButtonCollapse();
         btnPlaylist();
         playlist();
+        reload();
     }
 
     function muteActionMod() {
@@ -98,6 +99,12 @@ export function events() {
                 $("#music-name").click();
                 break;
         }
+    }
+
+    function reload(){
+        $("#reload").click(function(){
+            playerClass.reload();
+        });
     }
 
     return {

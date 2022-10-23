@@ -19,6 +19,18 @@ export function musicManager() {
         start();
     }
 
+    function reload(){
+        $("#display-music-name").empty();
+        $("#display-music-anime").empty();
+        $("#display-music-season").empty();
+        musics = localStorageClass.getMusics();
+        musicsByAnime = localStorageClass.getMusicsAnime();
+        musicsByName = localStorageClass.getMusicsName();
+        musicsBySeason = localStorageClass.getMusicsSeason();
+        playlists = localStorageClass.getPlayLists();
+        start();
+    }
+
     function start() {
         makeItensMusic("display-music-name", musicsByName, "name");
         makeItensMusic("display-music-anime", musicsByAnime, "anime");
@@ -221,7 +233,8 @@ export function musicManager() {
     }
 
     return {
-        init
+        init,
+        reload
     }
 }
 
