@@ -112,11 +112,13 @@ export function musicManager() {
 
     function makeOptionMusicList(idMusic, typeList) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
-        ul.append(makeLiDropdown("addMusic", "bi bi-plus-lg", "Adicionar na fila", typeList + "-add-music-" + idMusic));
+
+        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", typeList + "-add-music-" + idMusic));
         ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", typeList + "-playlist-music-" + idMusic));
-        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir Lista").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
+        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
         ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", typeList + "-down-music-" + idMusic));
         ul.append(makeLiDropdown("removeMusic", "bi bi-x-lg", "Remover", typeList + "-remove-music-" + idMusic));
+
 
         return ul;
     }

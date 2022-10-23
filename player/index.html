@@ -57,9 +57,12 @@
                                     Músicas
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#fast=music-name" id="music-name">Por nome</a></li>
-                                    <li><a class="dropdown-item" href="#fast=music-anime" id="music-anime">Por anime</a></li>
-                                    <li><a class="dropdown-item" href="#fast=music-season" id="music-season">Por Season</a></li>
+                                    <li><a class="dropdown-item" href="#fast=music-name" id="music-name">Por nome</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#fast=music-anime" id="music-anime">Por anime</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#fast=music-season" id="music-season">Por
+                                            Season</a></li>
                                 </ul>
                             </li>
 
@@ -69,8 +72,10 @@
                                     PlayLists
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#fast=playlist" id="playlist">Suas PlayLists</a></li>
-                                    <li><a class="dropdown-item" href="#fast=new-playlist" id="new-playlist">Criar uma PlayList</a></li>
+                                    <li><a class="dropdown-item" href="#fast=playlist" id="playlist">Suas PlayLists</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#fast=new-playlist" id="new-playlist">Criar uma
+                                            PlayList</a></li>
                                     <li><a class="dropdown-item" target="_blank" href="/animes/import"
                                             id="import-playlist">Importar uma
                                             Playlist</a></li>
@@ -126,73 +131,11 @@
 
             </div>
             <div class="col-12 tela d-none" id="display-playlist">
-                <h4 class="text-center mt-4">Não a nada aqui, acesse Import</h4>
-                <h4>A</h4>
-                <p>Lista por playlist</p>
-                <ul class="list-group">
-                    <li class="list-group-item ">
-                        <div class="row">
-                            <div class="col-2 col-sm-1 border-end  d-flex align-items-center">
-                                <button class="btn w-100"><i class="bi bi-play"></i></button>
-                            </div>
-                            <div class="col-10 col-sm d-flex justify-content-start align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#playlist-1">
-                                <span>PlayList name bababa baba bababa ba</span>
-                            </div>
-                            <div class="col-10 col-sm-3 col-lg-2 d-flex align-items-center" data-bs-toggle="collapse"
-                                data-bs-target="#playlist-1">
-                                <span>00003 músicas</span>
-                            </div>
-                            <div class="col-2 col-sm-1 border-start d-flex align-items-center justify-content-end">
-                                <button class="btn" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-three-dots"></i>
-                                </button>
-                                <ul class="dropdown-menu" style="z-index: 1035;">
-                                    <li data-bs-toggle="collapse" data-bs-target="#playlist-1">
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bi bi-collection"></i> Exibir Lista
-                                        </a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-box-arrow-down"></i> JSON</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-pencil"></i> Editar</a></li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-clipboard2"></i> Duplicar</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="#"> <i class="bi bi-x-lg"></i> Remover</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <input class="song-id" type="hidden" id="26">
 
-                        <div id="playlist-1" class="collapse">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <th>#1</th>
-                                        <td>Name song dajn adnaj adnakdnakdna</td>
-                                        <td>Artista</td>
-                                        <td>(1:59)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>#2</th>
-                                        <td>Name song dajn adnaj adnakdnakdna</td>
-                                        <td>Artista</td>
-                                        <td>(1:59)</td>
-                                    </tr>
-                                    <tr>
-                                        <th>#3</th>
-                                        <td>Name song dajn adnaj adnakdnakdna</td>
-                                        <td>Artista</td>
-                                        <td>(1:59)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </li>
-                </ul>
             </div>
             <div class="col-12 tela d-none" id="display-new-playlist">
-                <div id="new-playlist-child" class="d-none d-flex justify-content-center flex-column" style="height: 50vh;">
+                <div id="new-playlist-child" class="d-none d-flex justify-content-center flex-column"
+                    style="height: 50vh;">
                     <form action="javascript:void(0);" class="mt-5 mx-5 px-5">
                         <label class="form-check-label" for="newPlaylist">
                             Nome da Playlist
@@ -204,8 +147,10 @@
                         </div>
                     </form>
                 </div>
-                <div id="finish-playlist-child" class="d-none text-center d-flex justify-content-center flex-column" style="height: 50vh;">
-                    <h4>Tudo Ok. Clique em <i class="bi bi-three-dots"></i> para adicionar alguma música na playlist!!  </h4>
+                <div id="finish-playlist-child" class="d-none text-center d-flex justify-content-center flex-column"
+                    style="height: 50vh;">
+                    <h4>Tudo Ok. Clique em <i class="bi bi-three-dots"></i> para adicionar alguma música na playlist!!
+                    </h4>
                 </div>
             </div>
             <div class="col-12 tela d-none" id="display-edit-playlist">
