@@ -19,13 +19,13 @@ export function events() {
     function start() {
         createButtonAction();
         muteActionMod();
+        btnAddPlaylistById();
         createButtonCollapse();
         btnPlaylist();
         playlist();
         reload();
         search();
         clear();
-
     }
 
     function btnsMusics() {
@@ -169,6 +169,9 @@ export function events() {
             const id = this.id.split("-playlist-music-")[1];
             $("#id-playlist-add").val(id);
         });
+    }
+
+    function btnAddPlaylistById(){
         $("#btn-playlist-add").click(function () {
             const id = $("#select-playlist-add option:selected").val();
             const music = $("#id-playlist-add").val();

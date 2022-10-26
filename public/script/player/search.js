@@ -129,7 +129,7 @@ export function search() {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
         ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", "search-add-music-" + id));
-        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", "search-playlist-music-" + id));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", "search-playlist-music-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
         ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-search-" + id));
         ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", "search-down-music-" + id));
 
