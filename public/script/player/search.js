@@ -99,7 +99,7 @@ export function search() {
         let divRow = $("<div>").addClass("row");
 
         let div1 = $("<div>").addClass("col-2 col-sm-1 border-end  d-flex align-items-center");
-        let btn = $('<button>').addClass("btn w-100 searchNow").attr("id", "search-id-" + id);
+        let btn = $('<button>').addClass("btn w-100 playNow").attr("id", "search-music-" + id);
         btn.append(makeIcon("bi bi-play"));
         div1.append(btn);
         divRow.append(div1);

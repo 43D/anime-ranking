@@ -23,6 +23,7 @@ export function events() {
     }
 
     function btnsMusics() {
+        playMusic();
         addPlayMusic();
         addPlaylist();
         downloadMusic();
@@ -30,6 +31,7 @@ export function events() {
     }
 
     function btnsPlaylists() {
+        playPlaylist();
         downloadPlaylist();
         editPlaylist();
         duplicatePlaylist();
@@ -142,6 +144,13 @@ export function events() {
         });
     }
 
+    function playMusic() {
+        $(".playNow").click(function () {
+            const id = this.id.split("-music-")[1];
+            console.log(id);
+        });
+    }
+
     function addPlayMusic() {
         $(".addMusic").click(function () {
             const id = this.id.split("-add-music-")[1];
@@ -164,6 +173,13 @@ export function events() {
     function removeMusic() {
         $(".removeMusic").click(function () {
             const id = this.id.split("-remove-music-")[1];
+            console.log(id);
+        });
+    }
+
+    function playPlaylist() {
+        $(".playlistNow").click(function () {
+            const id = this.id.split("playlist-id-")[1];
             console.log(id);
         });
     }
