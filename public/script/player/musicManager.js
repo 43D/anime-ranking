@@ -20,7 +20,7 @@ export function musicManager() {
         start();
     }
 
-    function reload(){
+    function reload() {
         $("#display-music-name").empty();
         $("#display-music-anime").empty();
         $("#display-music-season").empty();
@@ -233,8 +233,53 @@ export function musicManager() {
         return (a < b) ? -1 : (a > b) ? 1 : 0;
     }
 
+    function getSeasn(string) {
+        const season = string.split(" ")[1] + "-";
+        switch (string.split(" ")[0]) {
+            case "Winter":
+                return season + "01";
+            case "Spring":
+                return season + "02";
+            case "Summer":
+                return season + "03";
+            case "Fall":
+                return season + "04";
+            default:
+                return undefined;
+        }
+    }
+
+    function removeById(id) {
+        const malId = musics[id].malID;
+        const season = getSeasn(musics[id].season);
+        const char = musics[id].name[0].toUpperCase();
+        delete musics[id];
+        musicsByAnime[malId] = removeArray(musicsByAnime[malId], id);
+        musicsByName[char] = removeArray(musicsByName[char], id);
+        musicsBySeason[season] = removeArray(musicsBySeason[season], id);
+        save();
+        reload();
+    }
+
+    function removeArray(json, id) {
+        let list = [];
+        json.forEach(function (k) {
+            if (k != id)
+                list[list.length] = k;
+        });
+        return list;
+    }
+
+    function save(){
+        localStorageClass.setMusicsAnime(musicsByAnime);
+        localStorageClass.setMusicsName(musicsByName);
+        localStorageClass.setMusicsSeason(musicsBySeason);
+        localStorageClass.setMusics(musics);
+    }
+
     return {
         init,
-        reload
+        reload,
+        removeById
     }
 }

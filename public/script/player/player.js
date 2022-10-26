@@ -25,12 +25,12 @@ export function player() {
         themeClass = theme();
         displayClass = display();
         displayClass.init({ "player": this });
-        eventsClass = events();
-        eventsClass.init({ "display": displayClass, "player": this });
         musicManagerClass = musicManager();
         musicManagerClass.init({"events": eventsClass});
         playlistManagerClass = playlistManager();
         playlistManagerClass.init({"events": eventsClass});
+        eventsClass = events();
+        eventsClass.init({ "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass});
         searchClass = search();
         searchClass.init();
         getParam();

@@ -18,7 +18,7 @@ export function playlistManager() {
     }
 
     function newPlayList(name) {
-        const play =  { "name": name, musics: [] };
+        const play = { "name": name, musics: [] };
         const keys = Object.keys(playlist);
         let id = (Number(keys[keys.length - 1]) + 1).toString();
         if (id == 'NaN')
@@ -28,7 +28,7 @@ export function playlistManager() {
         reload();
     }
 
-    
+
     function makeObj(obj, key, value) {
         if (obj[key]) {
             obj[key][obj[key].length] = value
@@ -37,7 +37,7 @@ export function playlistManager() {
         }
     }
 
-    function reload(){
+    function reload() {
         $("#display-playlist").empty();
         musics = localStorageClass.getMusics();
         playlist = localStorageClass.getPlayLists();
@@ -49,12 +49,14 @@ export function playlistManager() {
 
         if (keys.length == 0)
             addWarning("display-playlist");
-        else{
+        else {
             keys.sort().forEach(function (k) {
                 let listMusics = [];
                 let finalList = [];
                 playlist[k][0].musics.forEach(function (j) {
-                    listMusics[listMusics.length] = getNameItem(j);
+                    const name = getNameItem(j);
+                    if (name)
+                        listMusics[listMusics.length] = name;
                 });
                 listMusics.sort(function (a, b) {
                     return compareMusic(a[Object.keys(a)[0]], b[Object.keys(b)[0]]);
@@ -66,7 +68,7 @@ export function playlistManager() {
             });
             eventsClass.btnsPlaylists();
         }
-        
+
     }
 
     function addWarning(id) {
@@ -75,9 +77,12 @@ export function playlistManager() {
     }
 
     function getNameItem(key) {
-        let json = {};
-        json[key] = musics[key].name;
-        return json;
+        if (musics[key]) {
+            let json = {};
+            json[key] = musics[key].name;
+            return json;
+        }
+        return undefined;
     }
 
     function makeIcon(icon) {
@@ -96,7 +101,7 @@ export function playlistManager() {
         let mainDiv = $("<div>");
         let ul = $("<ul>").addClass("list-group");
         let li = $("<li>").addClass("list-group-item");
-        let row = makeMenu(id, playlist);
+        let row = makeMenu(id, playlist.name, finalList.length);
         let table = makeTable(id, finalList);
         li.append(row);
         li.append(table);
@@ -105,7 +110,7 @@ export function playlistManager() {
         display.append(mainDiv);
     }
 
-    function makeMenu(id, playlist) {
+    function makeMenu(id, title, qtdMusic) {
         let divRow = $("<div>").addClass("row");
 
         let div1 = $("<div>").addClass("col-2 col-sm-1 border-end  d-flex align-items-center");
@@ -115,12 +120,12 @@ export function playlistManager() {
         divRow.append(div1);
 
         let div2 = $("<div>").addClass("col-10 col-sm d-flex justify-content-start align-items-center").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id);
-        let name = $("<span>").text(playlist.name);
+        let name = $("<span>").text(title);
         div2.append(name);
         divRow.append(div2);
 
         let div3 = $("<div>").addClass("col-10 col-sm-3 col-lg-2 d-flex align-items-center").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id);
-        let qtd = $("<span>").text(playlist.musics.length + " músicas");
+        let qtd = $("<span>").text(qtdMusic + " músicas");
         div3.append(qtd);
         divRow.append(div3);
 

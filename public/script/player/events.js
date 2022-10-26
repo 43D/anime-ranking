@@ -1,6 +1,10 @@
 import { display } from "./display.js";
 import { player } from "./player.js";
+import { musicManager } from "./musicManager.js";
+import { playlistManager } from "./playlistManager.js";
 
+let musicManagerClass;
+let playlistManagerClass;
 let displayClass;
 let playerClass;
 
@@ -8,6 +12,8 @@ export function events() {
     function init(config = {}) {
         displayClass = (config.display) ? config.display : display();
         playerClass = (config.player) ? config.player : player();
+        musicManagerClass = (config.musicManager) ? config.musicManager : musicManager();
+        playlistManagerClass = (config.playlistManager) ? config.playlistManager : playlistManager();
     }
 
     function start() {
@@ -173,7 +179,7 @@ export function events() {
     function removeMusic() {
         $(".removeMusic").click(function () {
             const id = this.id.split("-remove-music-")[1];
-            console.log(id);
+            musicManagerClass.removeById(id);
         });
     }
 
