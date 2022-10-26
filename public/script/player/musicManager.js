@@ -56,12 +56,14 @@ export function musicManager() {
                 listMusics.forEach(function (j) {
                     list[list.length] = makeItem(Object.keys(j)[0], typeList);
                 });
-                if (typeList == "anime")
-                    makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
-                else if (typeList == "season")
-                    makeList(id, list, musics[musicsId[k][0]].season);
-                else
-                    makeList(id, list, k);
+
+                if (musics[musicsId[k][0]])
+                    if (typeList == "anime")
+                        makeList(id, list, musics[musicsId[k][0]].anime.romaji, musics[musicsId[k][0]].anime.english);
+                    else if (typeList == "season")
+                        makeList(id, list, musics[musicsId[k][0]].season);
+                    else
+                        makeList(id, list, k);
 
                 list = [];
             });
@@ -127,7 +129,7 @@ export function musicManager() {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
         ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", typeList + "-add-music-" + idMusic));
-        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", typeList + "-playlist-music-" + idMusic));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", typeList + "-playlist-music-" + idMusic).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
         ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
         ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", typeList + "-down-music-" + idMusic));
         ul.append(makeLiDropdown("removeMusic", "bi bi-x-lg", "Remover", typeList + "-remove-music-" + idMusic));
@@ -270,7 +272,7 @@ export function musicManager() {
         return list;
     }
 
-    function save(){
+    function save() {
         localStorageClass.setMusicsAnime(musicsByAnime);
         localStorageClass.setMusicsName(musicsByName);
         localStorageClass.setMusicsSeason(musicsBySeason);

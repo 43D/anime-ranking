@@ -50,6 +50,7 @@ export function playlistManager() {
         if (keys.length == 0)
             addWarning("display-playlist");
         else {
+            $("#select-playlist-add").empty().prop("disabled", true);
             keys.sort().forEach(function (k) {
                 let listMusics = [];
                 let finalList = [];
@@ -65,6 +66,7 @@ export function playlistManager() {
                     finalList[finalList.length] = Object.keys(listMusics[j])[0];
                 });
                 makeList(k, playlist[k][0], finalList);
+                makeOptionAddPlaylist(k, playlist[k][0].name);
             });
             eventsClass.btnsPlaylists();
         }
@@ -190,9 +192,28 @@ export function playlistManager() {
         return tr;
     }
 
+    function makeOptionAddPlaylist(id, name) {
+        const option = $("<option>").val(id).html(name);
+        $("#select-playlist-add").append(option).prop("disabled", false);
+    }
+
+    function save(){
+        localStorageClass.setPlayLists(playlist);
+    }
+
+    function addPlaylistById(id, music) {
+        let array = playlist[id][0].musics;
+        if (!array.includes(music)){
+            array[array.length] = music;
+            playlist[id][0].musics = array;
+            save();
+            reload();
+        }
+    }
     return {
         init,
         newPlayList,
-        reload
+        reload,
+        addPlaylistById
     }
 }

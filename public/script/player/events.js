@@ -167,7 +167,12 @@ export function events() {
     function addPlaylist() {
         $(".playlistAdd").click(function () {
             const id = this.id.split("-playlist-music-")[1];
-            console.log(id);
+            $("#id-playlist-add").val(id);
+        });
+        $("#btn-playlist-add").click(function () {
+            const id = $("#select-playlist-add option:selected").val();
+            const music = $("#id-playlist-add").val();
+            playlistManagerClass.addPlaylistById(id, music);
         });
     }
     function downloadMusic() {

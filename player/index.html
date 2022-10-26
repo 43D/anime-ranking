@@ -288,6 +288,30 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="addPlaylistModal" tabindex="-1" aria-labelledby="Adicionar na playlist" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Adicionar na playlist</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <form action="javascript:void(0);">
+                            <input type="hidden" id="id-playlist-add" name="id-playlist-add" value="-1">
+                            <label for="select-playlist-add" class="form-label">Playlist: </label>
+                            <select class="form-select" id="select-playlist-add" aria-label="select playlist" disabled>
+                                
+                              </select>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-outline-secondary" id="btn-playlist-add" data-bs-dismiss="modal">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
