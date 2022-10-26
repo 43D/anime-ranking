@@ -5,7 +5,9 @@ import { defaultConfigs } from "../defaultConfigs.js";
 import { musicManager } from "./musicManager.js";
 import { playlistManager } from "./playlistManager.js";
 import { search } from "./search.js";
+import { localStorageObject } from "../localStorageObject.js";
 
+let localStorageObjectClass;
 let searchClass;
 let musicManagerClass;
 let playlistManagerClass;
@@ -15,6 +17,7 @@ let displayClass;
 
 export function player() {
     function init() {
+        localStorageObjectClass = localStorageObject();
         defaultConfigsClass = defaultConfigs();
         defaultConfigsClass.init();
         themeClass = theme();
@@ -46,11 +49,16 @@ export function player() {
     function searchAction() {
         searchClass.start();
     }
+
+    function clearData(){
+        localStorageObjectClass.clear();
+    }
     return {
         init,
         newPlayList,
         reload,
-        searchAction
+        searchAction,
+        clearData
     }
 
 }

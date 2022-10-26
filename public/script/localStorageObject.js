@@ -84,6 +84,11 @@ export function localStorageObject() {
     function getMusicsSeason() {
         return getLocalStorage(musicsSeason);
     }
+
+    function clear(){
+        localStorage.clear();
+        location.reload(true);
+    }
     return {
         getMusics,
         getPlayLists,
@@ -102,7 +107,8 @@ export function localStorageObject() {
         setConfig,
         setMusicsAnime,
         setMusicsName,
-        setMusicsSeason
+        setMusicsSeason,
+        clear
     }
 
 }

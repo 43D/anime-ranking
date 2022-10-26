@@ -17,6 +17,7 @@ export function events() {
         btnPlaylist();
         playlist();
         reload();
+        clear();
     }
 
     function muteActionMod() {
@@ -112,6 +113,12 @@ export function events() {
             $("#musicbarNav").removeClass("show");
             displayClass.displayShowById("display-search");
             playerClass.searchAction();
+        });
+    }
+
+    function clear() {
+        $("#btn-clear-data").click(function () {
+            playerClass.clearData();
         });
     }
 
