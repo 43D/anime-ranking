@@ -40,15 +40,11 @@ export function display() {
         $("#" + id).addClass("d-none");
     }
 
-    function actionUrl(url){
-        eventsClass.actionUrl(url);
-    }
     return {
         init,
         displayShowById,
         displayMainShowById,
         showById,
-        hiddenById,
-        actionUrl
+        hiddenById
     }
 }

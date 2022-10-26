@@ -1,5 +1,7 @@
 import { localStorageObject } from "../localStorageObject.js";
+import { events } from "./events.js";
 
+let eventsClass;
 let localStorageClass;
 
 export function search() {
@@ -9,6 +11,7 @@ export function search() {
 
     function init(config = {}) {
         localStorageClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
+        eventsClass = (config.events) ? config.events : events();
         musics = localStorageClass.getMusics();
         playlist = localStorageClass.getPlayLists();
     }
@@ -17,8 +20,10 @@ export function search() {
         const strings = $("#search-value").val().split(" ");
         $("#display-search").empty();
 
-        if (strings[0] != "")
+        if (strings[0] != "") {
             search(strings);
+            eventsClass.btnsSeacrh();
+        }
         else
             notFound();
     }
@@ -77,7 +82,7 @@ export function search() {
         });
     }
 
-    function makeList(id, music){
+    function makeList(id, music) {
         let mainDiv = $("<div>");
         let ul = $("<ul>").addClass("list-group");
         let li = $("<li>").addClass("list-group-item");
@@ -90,7 +95,7 @@ export function search() {
         $("#display-search").append(mainDiv);
     }
 
-    function makeMenu(id, music){
+    function makeMenu(id, music) {
         let divRow = $("<div>").addClass("row");
 
         let div1 = $("<div>").addClass("col-2 col-sm-1 border-end  d-flex align-items-center");
@@ -120,13 +125,13 @@ export function search() {
         return divRow;
     }
 
-    function makeOptionMusicList(id){
+    function makeOptionMusicList(id) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
-        ul.append(makeLiDropdown("addSearchMusic", "bi bi-collection", "Adicionar na fila", "search-add-music-" + id));
-        ul.append(makeLiDropdown("searchPlaylistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", "search-playlist-music-" + id));
-        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-search-" + id));
-        ul.append(makeLiDropdown("downloadSearchMusic", "bi bi-box-arrow-down", "JSON", "search-down-music-" + id));
+        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", "search-add-music-" + id));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", "search-playlist-music-" + id));
+        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-search-" + id));
+        ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", "search-down-music-" + id));
 
         return ul;
     }
@@ -145,8 +150,8 @@ export function search() {
         return $('<i>').addClass(icon);
     }
 
-    function makeTable(id, music){
-        let div = $("<div>").addClass("collapse").attr("id", "collapse-search-"+id);
+    function makeTable(id, music) {
+        let div = $("<div>").addClass("collapse").attr("id", "collapse-search-" + id);
         let table = $("<table>").addClass("table table-striped table-hover");
         let tbody = $("<tbody>");
 

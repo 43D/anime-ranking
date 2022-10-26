@@ -6,7 +6,9 @@ import { musicManager } from "./musicManager.js";
 import { playlistManager } from "./playlistManager.js";
 import { search } from "./search.js";
 import { localStorageObject } from "../localStorageObject.js";
+import { events } from "./events.js";
 
+let eventsClass;
 let localStorageObjectClass;
 let searchClass;
 let musicManagerClass;
@@ -23,10 +25,12 @@ export function player() {
         themeClass = theme();
         displayClass = display();
         displayClass.init({ "player": this });
+        eventsClass = events();
+        eventsClass.init({ "display": displayClass, "player": this });
         musicManagerClass = musicManager();
-        musicManagerClass.init();
+        musicManagerClass.init({"events": eventsClass});
         playlistManagerClass = playlistManager();
-        playlistManagerClass.init();
+        playlistManagerClass.init({"events": eventsClass});
         searchClass = search();
         searchClass.init();
         getParam();
@@ -38,19 +42,20 @@ export function player() {
 
     function getParam() {
         const url = window.location.hash.split("fast=")[1];
-        displayClass.actionUrl(url);
+        eventsClass.actionUrl(url);
     }
 
     function reload() {
         musicManagerClass.reload();
         playlistManagerClass.reload();
+        //eventsClass.reload();
     }
 
     function searchAction() {
         searchClass.start();
     }
 
-    function clearData(){
+    function clearData() {
         localStorageObjectClass.clear();
     }
     return {

@@ -1,5 +1,7 @@
 import { localStorageObject } from "../localStorageObject.js";
+import { events } from "./events.js";
 
+let eventsClass;
 let localStorageClass;
 
 export function playlistManager() {
@@ -9,6 +11,7 @@ export function playlistManager() {
 
     function init(config = {}) {
         localStorageClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
+        eventsClass = (config.events) ? config.events : events();
         musics = localStorageClass.getMusics();
         playlist = localStorageClass.getPlayLists();
         start();
@@ -46,7 +49,7 @@ export function playlistManager() {
 
         if (keys.length == 0)
             addWarning("display-playlist");
-        else
+        else{
             keys.sort().forEach(function (k) {
                 let listMusics = [];
                 let finalList = [];
@@ -61,7 +64,9 @@ export function playlistManager() {
                 });
                 makeList(k, playlist[k][0], finalList);
             });
-
+            eventsClass.btnsPlaylists();
+        }
+        
     }
 
     function addWarning(id) {

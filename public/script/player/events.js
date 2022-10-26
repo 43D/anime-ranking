@@ -19,6 +19,25 @@ export function events() {
         reload();
         search();
         clear();
+
+    }
+
+    function btnsMusics() {
+        addPlayMusic();
+        addPlaylist();
+        downloadMusic();
+        removeMusic();
+    }
+
+    function btnsPlaylists() {
+        downloadPlaylist();
+        editPlaylist();
+        duplicatePlaylist();
+        removePlaylist();
+    }
+
+    function btnsSeacrh() {
+        btnsMusics();
     }
 
     function muteActionMod() {
@@ -104,7 +123,6 @@ export function events() {
 
     function reload() {
         $("#reload").click(function () {
-            console.log("reload");
             $("#musicbarNav").removeClass("show");
             playerClass.reload();
         });
@@ -124,9 +142,64 @@ export function events() {
         });
     }
 
+    function addPlayMusic() {
+        $(".addMusic").click(function () {
+            const id = this.id.split("-add-music-")[1];
+            console.log(id);
+        });
+    }
+
+    function addPlaylist() {
+        $(".playlistAdd").click(function () {
+            const id = this.id.split("-playlist-music-")[1];
+            console.log(id);
+        });
+    }
+    function downloadMusic() {
+        $(".downloadMusic").click(function () {
+            const id = this.id.split("-down-music-")[1];
+            console.log(id);
+        });
+    }
+    function removeMusic() {
+        $(".removeMusic").click(function () {
+            const id = this.id.split("-remove-music-")[1];
+            console.log(id);
+        });
+    }
+
+    function downloadPlaylist() {
+        $(".downPlaylist").click(function () {
+            const id = this.id.split("playlist-down-")[1];
+            console.log(id);
+        });
+    }
+    function duplicatePlaylist() {
+        $(".duplicatePlaylist").click(function () {
+            const id = this.id.split("playlist-duplicate-")[1];
+            console.log(id);
+        });
+    }
+    function editPlaylist() {
+        $(".editPlaylist").click(function () {
+            const id = this.id.split("playlist-edit-")[1];
+            console.log(id);
+        });
+    }
+    function removePlaylist() {
+        $(".removePlaylist").click(function () {
+            const id = this.id.split("playlist-remove-")[1];
+            console.log(id);
+        });
+    }
+
     return {
         init,
         start,
-        actionUrl
+        actionUrl,
+        reload,
+        btnsMusics,
+        btnsPlaylists,
+        btnsSeacrh
     }
 }

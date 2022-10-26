@@ -1,5 +1,7 @@
 import { localStorageObject } from "../localStorageObject.js";
+import { events } from "./events.js";
 
+let eventsClass;
 let localStorageClass;
 
 export function musicManager() {
@@ -7,20 +9,18 @@ export function musicManager() {
     let musicsByAnime = {};
     let musicsByName = {};
     let musicsBySeason = {};
-    let playlists = {};
 
     function init(config = {}) {
         localStorageClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
+        eventsClass = (config.events) ? config.events : events();
         musics = localStorageClass.getMusics();
         musicsByAnime = localStorageClass.getMusicsAnime();
         musicsByName = localStorageClass.getMusicsName();
         musicsBySeason = localStorageClass.getMusicsSeason();
-        playlists = localStorageClass.getPlayLists();
         start();
     }
 
     function reload(){
-        console.log("reload");
         $("#display-music-name").empty();
         $("#display-music-anime").empty();
         $("#display-music-season").empty();
@@ -28,7 +28,6 @@ export function musicManager() {
         musicsByAnime = localStorageClass.getMusicsAnime();
         musicsByName = localStorageClass.getMusicsName();
         musicsBySeason = localStorageClass.getMusicsSeason();
-        playlists = localStorageClass.getPlayLists();
         start();
     }
 
@@ -36,6 +35,7 @@ export function musicManager() {
         makeItensMusic("display-music-name", musicsByName, "name");
         makeItensMusic("display-music-anime", musicsByAnime, "anime");
         makeItensMusic("display-music-season", musicsBySeason, "season");
+        eventsClass.btnsMusics();
     }
 
     function makeItensMusic(id, musicsId, typeList) {
