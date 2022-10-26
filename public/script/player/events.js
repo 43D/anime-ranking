@@ -17,6 +17,7 @@ export function events() {
         btnPlaylist();
         playlist();
         reload();
+        search();
         clear();
     }
 
@@ -103,12 +104,13 @@ export function events() {
 
     function reload() {
         $("#reload").click(function () {
+            console.log("reload");
             $("#musicbarNav").removeClass("show");
             playerClass.reload();
         });
     }
 
-    function reload() {
+    function search() {
         $("#btn-search").click(function () {
             $("#musicbarNav").removeClass("show");
             displayClass.displayShowById("display-search");

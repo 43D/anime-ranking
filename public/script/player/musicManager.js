@@ -20,6 +20,7 @@ export function musicManager() {
     }
 
     function reload(){
+        console.log("reload");
         $("#display-music-name").empty();
         $("#display-music-anime").empty();
         $("#display-music-season").empty();
