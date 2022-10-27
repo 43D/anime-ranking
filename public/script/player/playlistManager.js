@@ -1,5 +1,6 @@
 import { localStorageObject } from "../localStorageObject.js";
 import { events } from "./events.js";
+import { player } from "./player.js";
 
 let eventsClass;
 let localStorageClass;
@@ -197,23 +198,52 @@ export function playlistManager() {
         $("#select-playlist-add").append(option).prop("disabled", false);
     }
 
-    function save(){
+    function save() {
         localStorageClass.setPlayLists(playlist);
     }
 
     function addPlaylistById(id, music) {
         let array = playlist[id][0].musics;
-        if (!array.includes(music)){
+        if (!array.includes(music)) {
             array[array.length] = music;
             playlist[id][0].musics = array;
             save();
             reload();
         }
     }
+
+    function makeTime() {
+        const current = new Date();
+
+        const time = current.toLocaleTimeString("pt-BR", {
+            hour: "2-digit",
+            minute: "2-digit",
+            year: "2-digit",
+            month: "2-digit",
+            day: "2-digit",
+            hour12: false
+        });
+
+        return time.replaceAll("/", "-").replaceAll(" ", "-").replaceAll(":", "-");
+    }
+
+    function clonePlaylist(id) {
+        let play = { ...playlist[id][0] };
+        play.name = play.name + makeTime();
+        const keys = Object.keys(playlist);
+        let newId = (Number(keys[keys.length - 1]) + 1).toString();
+        if (newId == 'NaN')
+            newId = "1";
+        makeObj(playlist, newId, play);
+        localStorageClass.setPlayLists(playlist);
+        reload();
+    }
+
     return {
         init,
         newPlayList,
         reload,
-        addPlaylistById
+        addPlaylistById,
+        clonePlaylist
     }
 }

@@ -26,11 +26,11 @@ export function player() {
         displayClass = display();
         displayClass.init({ "player": this });
         musicManagerClass = musicManager();
-        musicManagerClass.init({"events": eventsClass});
+        musicManagerClass.init({ "events": eventsClass });
         playlistManagerClass = playlistManager();
-        playlistManagerClass.init({"events": eventsClass});
+        playlistManagerClass.init({ "events": eventsClass });
         eventsClass = events();
-        eventsClass.init({ "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass});
+        eventsClass.init({ "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass });
         searchClass = search();
         searchClass.init();
         getParam();
@@ -58,12 +58,16 @@ export function player() {
     function clearData() {
         localStorageObjectClass.clear();
     }
+
+    
+
     return {
         init,
         newPlayList,
         reload,
         searchAction,
         clearData
+        
     }
 
 }

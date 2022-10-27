@@ -207,7 +207,7 @@ export function events() {
     function duplicatePlaylist() {
         $(".duplicatePlaylist").click(function () {
             const id = this.id.split("playlist-duplicate-")[1];
-            console.log(id);
+            playlistManagerClass.clonePlaylist(id);
         });
     }
     function editPlaylist() {
