@@ -148,7 +148,7 @@ export function playlistManager() {
 
         ul.append(makeLiDropdown("", "bi bi-collection", "Exibir músicas").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id));
         ul.append(makeLiDropdown("downPlaylist", "bi bi-box-arrow-down", "JSON", "playlist-down-" + id));
-        ul.append(makeLiDropdown("editPlaylist", "bi bi-pencil", "Editar", "playlist-edit-" + id));
+        ul.append(makeLiDropdown("editPlaylist", "bi bi-pencil", "Editar", "playlist-edit-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#editPlaylistModal"));
         ul.append(makeLiDropdown("duplicatePlaylist", "bi bi-clipboard2", "Duplicar", "playlist-duplicate-" + id));
         ul.append(makeLiDropdown("removePlaylist", "bi bi-x-lg", "Remover", "playlist-remove-" + id));
         return ul;
@@ -239,10 +239,38 @@ export function playlistManager() {
         reload();
     }
 
-    function removeById(id){
+    function removeById(id) {
         delete playlist[id];
         localStorageClass.setPlayLists(playlist);
         reload();
+    }
+
+    function editById(id) {
+        $("#id-playlist-edit").val(id);
+        $("#name-playlist-edit").val(playlist[id][0].name);
+        $("#checks").empty();
+        playlist[id][0].musics.forEach(function (k) {
+            const name = musics[k].name;
+            if (name) {
+                addCheckboxEdit(k, name);
+            }
+        });
+    }
+
+    function addCheckboxEdit(id, name) {
+        let div = $("<div>").addClass("form-check mt-2 px-3 py-4 border");
+        let inp = $("<input>").addClass("form-check-input checkboxPlaylistEdit ms-1 me-2").attr("type", "checkbox").attr("id", "checkbox-playlist-edit-" + id).val(id).prop("checked", true);
+        let lbl = $("<label>").addClass("form-check-label").attr("for", "checkbox-playlist-edit-" + id).html(name);
+        div.append(inp);
+        div.append(lbl);
+        $("#checks").append(div);
+    }
+
+    function editPlaylistForm(){
+        const id = $("#id-playlist-edit").val();
+        const name = $("#name-playlist-edit").val();
+        const elMusics = $(".checkboxPlaylistEdit");
+
     }
 
     return {
@@ -251,6 +279,7 @@ export function playlistManager() {
         reload,
         addPlaylistById,
         clonePlaylist,
-        removeById
+        removeById,
+        editById
     }
 }

@@ -3,6 +3,11 @@
     margin: 0px;
 }
 
+.ui-sortable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
 .vh-80 {
     height: 80vh;
 }

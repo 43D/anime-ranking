@@ -42,6 +42,7 @@ export function events() {
         editPlaylist();
         duplicatePlaylist();
         removePlaylist();
+        sortablePlaylist();
     }
 
     function btnsSeacrh() {
@@ -213,7 +214,7 @@ export function events() {
     function editPlaylist() {
         $(".editPlaylist").click(function () {
             const id = this.id.split("playlist-edit-")[1];
-            console.log(id);
+            playlistManagerClass.editById(id);
         });
     }
     function removePlaylist() {
@@ -221,6 +222,10 @@ export function events() {
             const id = this.id.split("playlist-remove-")[1];
             playlistManagerClass.removeById(id);
         });
+    }
+
+    function sortablePlaylist(){
+        $( "#checks" ).sortable();
     }
 
     return {
