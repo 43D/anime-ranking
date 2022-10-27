@@ -172,13 +172,21 @@ export function events() {
         });
     }
 
-    function btnAddPlaylistById(){
+    function btnAddPlaylistById() {
         $("#btn-playlist-add").click(function () {
             const id = $("#select-playlist-add option:selected").val();
             const music = $("#id-playlist-add").val();
             playlistManagerClass.addPlaylistById(id, music);
         });
     }
+
+    function btnAddPlaylistById() {
+        $("#btn-playlist-edit").click(function () {
+            playlistManagerClass.editPlaylistForm();
+        });
+    }
+
+
     function downloadMusic() {
         $(".downloadMusic").click(function () {
             const id = this.id.split("-down-music-")[1];
@@ -224,8 +232,8 @@ export function events() {
         });
     }
 
-    function sortablePlaylist(){
-        $( "#checks" ).sortable();
+    function sortablePlaylist() {
+        $("#checks").sortable();
     }
 
     return {

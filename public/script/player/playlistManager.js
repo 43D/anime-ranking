@@ -32,7 +32,7 @@ export function playlistManager() {
 
     function makeObj(obj, key, value) {
         if (obj[key]) {
-            obj[key][obj[key].length] = value
+            obj[key][obj[key].length] = value;
         } else {
             obj[key] = [value];
         }
@@ -59,9 +59,6 @@ export function playlistManager() {
                     const name = getNameItem(j);
                     if (name)
                         listMusics[listMusics.length] = name;
-                });
-                listMusics.sort(function (a, b) {
-                    return compareMusic(a[Object.keys(a)[0]], b[Object.keys(b)[0]]);
                 });
                 Object.keys(listMusics).forEach(function (j) {
                     finalList[finalList.length] = Object.keys(listMusics[j])[0];
@@ -250,9 +247,8 @@ export function playlistManager() {
         $("#name-playlist-edit").val(playlist[id][0].name);
         $("#checks").empty();
         playlist[id][0].musics.forEach(function (k) {
-            const name = musics[k].name;
-            if (name) {
-                addCheckboxEdit(k, name);
+            if (musics[k]) {
+                addCheckboxEdit(k, musics[k].name);
             }
         });
     }
@@ -266,11 +262,20 @@ export function playlistManager() {
         $("#checks").append(div);
     }
 
-    function editPlaylistForm(){
+    function editPlaylistForm() {
         const id = $("#id-playlist-edit").val();
         const name = $("#name-playlist-edit").val();
         const elMusics = $(".checkboxPlaylistEdit");
+        let finalmusics = [];
+        elMusics.each(function (index, element) {
+            finalmusics[finalmusics.length] = element.value;
+        });
 
+        const play = { "name": name, musics: finalmusics };
+
+        playlist[id][0] = play;
+        localStorageClass.setPlayLists(playlist);
+        reload();
     }
 
     return {
@@ -280,6 +285,7 @@ export function playlistManager() {
         addPlaylistById,
         clonePlaylist,
         removeById,
-        editById
+        editById,
+        editPlaylistForm
     }
 }
