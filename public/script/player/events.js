@@ -219,7 +219,7 @@ export function events() {
     function removePlaylist() {
         $(".removePlaylist").click(function () {
             const id = this.id.split("playlist-remove-")[1];
-            console.log(id);
+            playlistManagerClass.removeById(id);
         });
     }
 

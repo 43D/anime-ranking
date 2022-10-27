@@ -239,11 +239,18 @@ export function playlistManager() {
         reload();
     }
 
+    function removeById(id){
+        delete playlist[id];
+        localStorageClass.setPlayLists(playlist);
+        reload();
+    }
+
     return {
         init,
         newPlayList,
         reload,
         addPlaylistById,
-        clonePlaylist
+        clonePlaylist,
+        removeById
     }
 }
