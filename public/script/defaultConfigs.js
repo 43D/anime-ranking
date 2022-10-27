@@ -16,14 +16,15 @@ export function defaultConfigs() {
         if (isNull(localStorageClass.getMusics()))
             createMusic();
 
-        
+
     }
 
     function createConfig() {
         const config = {
             "volume": 1.0,
             "lastMusic": "-1",
-            "playtime": "0"
+            "playtime": "0",
+            "streaming": "0"
         }
         localStorageClass.setConfig(config);
 
@@ -41,7 +42,7 @@ export function defaultConfigs() {
 
     }
 
-    function createMusic(){
+    function createMusic() {
         const empity = {};
         localStorageClass.setMusics(empity);
         localStorageClass.setPlayLists(empity);

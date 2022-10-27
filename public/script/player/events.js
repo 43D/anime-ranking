@@ -2,7 +2,9 @@ import { display } from "./display.js";
 import { player } from "./player.js";
 import { musicManager } from "./musicManager.js";
 import { playlistManager } from "./playlistManager.js";
+import { mediaManager } from "./mediaManager.js";
 
+let mediaManagerClass
 let musicManagerClass;
 let playlistManagerClass;
 let displayClass;
@@ -14,6 +16,7 @@ export function events() {
         playerClass = (config.player) ? config.player : player();
         musicManagerClass = (config.musicManager) ? config.musicManager : musicManager();
         playlistManagerClass = (config.playlistManager) ? config.playlistManager : playlistManager();
+        mediaManagerClass = (config.mediaManager) ? config.mediaManager : mediaManager();
     }
 
     function start() {
@@ -26,6 +29,7 @@ export function events() {
         reload();
         search();
         clear();
+        selectQuality();
     }
 
     function btnsMusics() {
@@ -235,6 +239,12 @@ export function events() {
 
     function sortablePlaylist() {
         $("#checks").sortable();
+    }
+
+    function selectQuality() {
+        $("#select-quality").change(function () {
+            mediaManagerClass.setStreaming($(this).val());
+        });
     }
 
     return {

@@ -85,9 +85,15 @@ export function localStorageObject() {
         return getLocalStorage(musicsSeason);
     }
 
-    function clear(){
+    function clear() {
         localStorage.clear();
         location.reload(true);
+    }
+
+    function setStreaming(qld) {
+        let config = getConfig();
+        config['streaming'] = qld;
+        setConfig(config);
     }
     return {
         getMusics,
@@ -108,7 +114,8 @@ export function localStorageObject() {
         setMusicsAnime,
         setMusicsName,
         setMusicsSeason,
-        clear
+        clear,
+        setStreaming
     }
 
 }
