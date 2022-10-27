@@ -197,6 +197,7 @@ export function events() {
         $(".removeMusic").click(function () {
             const id = this.id.split("-remove-music-")[1];
             musicManagerClass.removeById(id);
+            playlistManagerClass.reload();
         });
     }
 
