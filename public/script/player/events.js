@@ -371,7 +371,7 @@ export function events() {
                 $("#volume-mute").removeClass("btn-outline-secondary").addClass("btn-danger");
             else
                 $("#volume-mute").removeClass("btn-danger").addClass("btn-outline-secondary");
-
+            mediaManagerClass.setVolume();
         });
     }
     return {

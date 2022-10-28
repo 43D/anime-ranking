@@ -109,13 +109,23 @@ export function mediaManager() {
         source = "video";
     }
 
-    function setVolume(vol) {
-        $("#video")[0].volume = vol;
-        $("#audio")[0].volume = vol;
-        $("#volume").val((Number(vol) * 100));
-
+    function setVolume(vol = 0) {
         let config = localStorageObjectClass.getConfig();
-        config["volume"] = vol;
+
+        if (config["mute"]) {
+            $("#video")[0].volume = 0;
+            $("#audio")[0].volume = 0;
+            $("#volume").val(0);
+        } else if (vol > 0) {
+            $("#video")[0].volume = vol;
+            $("#audio")[0].volume = vol;
+            $("#volume").val((Number(vol) * 100));
+            config["volume"] = vol;
+        } else {
+            $("#video")[0].volume = config["volume"];
+            $("#audio")[0].volume = config["volume"];
+            $("#volume").val((Number(config["volume"]) * 100));
+        }
         localStorageObjectClass.setConfig(config);
     }
 
@@ -234,28 +244,17 @@ export function mediaManager() {
     }
 
     function actionPlay() {
-        if (source == "audio") {
-            console.log("au");
-            if (isPlay()) {
-                console.log();
+        if (source == "audio")
+            if (isPlay())
                 $("#audio")[0].pause();
-            } else {
-                console.log();
+            else
                 $("#audio")[0].play();
-            }
-        }
-        else if (source == "video") {
-            console.log("vi");
-            if (isPlay()) {
-                console.log();
+        else if (source == "video")
+            if (isPlay())
                 $("#video")[0].pause();
-            } else {
-                console.log();
+            else
                 $("#video")[0].play();
-            }
-        }
         else {
-            console.log("no");
             firstMusic();
             createNextPlay();
             play();
