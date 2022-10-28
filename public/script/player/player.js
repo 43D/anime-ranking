@@ -37,7 +37,7 @@ export function player() {
         displayClass.init({ "player": this, "events":eventsClass });
         musicManagerClass.init({ "events": eventsClass });
         playlistManagerClass.init({ "events": eventsClass });
-        mediaManagerClass.init({ "musicManager": musicManagerClass });
+        mediaManagerClass.init({ "musicManager": musicManagerClass, "events": eventsClass });
         
         getParam();
     }

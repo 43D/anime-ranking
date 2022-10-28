@@ -47,6 +47,7 @@ export function events() {
         btnLoop();
         btnMute();
         btnShuffle();
+        skippedPlay();
     }
 
     function btnsMusics() {
@@ -191,6 +192,7 @@ export function events() {
         $(".playlistAdd").click(function () {
             const id = this.id.split("-playlist-music-")[1];
             $("#id-playlist-add").val(id);
+            
         });
     }
 
@@ -212,7 +214,6 @@ export function events() {
     function downloadMusic() {
         $(".downloadMusic").click(function () {
             const id = this.id.split("-down-music-")[1];
-            console.log(id);
         });
     }
     function removeMusic() {
@@ -234,7 +235,6 @@ export function events() {
     function downloadPlaylist() {
         $(".downPlaylist").click(function () {
             const id = this.id.split("playlist-down-")[1];
-            console.log(id);
         });
     }
     function duplicatePlaylist() {
@@ -381,6 +381,14 @@ export function events() {
             mediaManagerClass.shuffle();
         });
     }
+
+    function skippedPlay() {
+        $(".skippedPlay").click(function () {
+            const id = this.id.split("list-play-music-")[1];
+            mediaManagerClass.skipped(id);
+        });
+    }
+
     return {
         init,
         start,
@@ -388,6 +396,7 @@ export function events() {
         reload,
         btnsMusics,
         btnsPlaylists,
-        btnsSeacrh
+        btnsSeacrh,
+        skippedPlay
     }
 }

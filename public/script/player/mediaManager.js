@@ -1,8 +1,9 @@
 
 import { localStorageObject } from "../localStorageObject.js";
 import { musicManager } from "./musicManager.js";
+import { events } from "./events.js";
 
-
+let eventsClass;
 let musicManagerClass;
 let localStorageObjectClass;
 export function mediaManager() {
@@ -10,6 +11,7 @@ export function mediaManager() {
     let source = "";
 
     function init(config = {}) {
+        eventsClass = (config.events) ? config.events : events();
         localStorageObjectClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
         musicManagerClass = (config.musicManager) ? config.musicManager : musicManager();
         currentPlayList = localStorageObjectClass.getCurrentPlayList();
@@ -52,6 +54,16 @@ export function mediaManager() {
                     break;
             }
         }
+    }
+
+
+    function skipped(id) {
+        let config = localStorageObjectClass.getConfig();
+        config["playnow"] = Number(id);
+        localStorageObjectClass.setConfig(config);
+        createNextPlay();
+        createPreviewPlay();
+        play();
     }
 
     function endPlay() {
@@ -131,10 +143,12 @@ export function mediaManager() {
 
     function createList() {
         $("#list-play-ul").empty();
+        let i = 0;
         currentPlayList.forEach(function (k) {
-            makeLi(k, musicManagerClass.getMusicById(k));
+            makeLi(i, musicManagerClass.getMusicById(k));
+            i++
         });
-
+        eventsClass.skippedPlay();
     }
 
     function makeIcon(icon) {
@@ -146,7 +160,7 @@ export function mediaManager() {
             let li = $("<li>").addClass("list-group-item");
             let row = $("<div>").addClass("row");
             let div1 = $("<div>").addClass("col-2 col-sm-1 border-end d-flex align-items-center");
-            let btnPlay = $("<button>").addClass("btn w-100 listPlayNow").attr("id", "list-play-music-" + id);
+            let btnPlay = $("<button>").addClass("btn w-100 skippedPlay").attr("id", "list-play-music-" + id);
             btnPlay.append(makeIcon("bi bi-play"));
             div1.append(btnPlay);
 
@@ -326,6 +340,7 @@ export function mediaManager() {
         actionPlay,
         actionLoop,
         actionMute,
-        shuffle
+        shuffle,
+        skipped
     }
 }
