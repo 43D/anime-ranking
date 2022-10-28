@@ -24,7 +24,9 @@ export function defaultConfigs() {
             "volume": 1.0,
             "lastMusic": "-1",
             "playtime": "0",
-            "streaming": "0"
+            "streaming": "0",
+            "loop": false,
+            "mute": false
         }
         localStorageClass.setConfig(config);
 
@@ -43,13 +45,14 @@ export function defaultConfigs() {
     }
 
     function createMusic() {
-        const empity = {};
-        localStorageClass.setMusics(empity);
-        localStorageClass.setPlayLists(empity);
-        localStorageClass.setCurrentPlayList(empity);
-        localStorageClass.setMusicsAnime(empity);
-        localStorageClass.setMusicsName(empity);
-        localStorageClass.setMusicsSeason(empity);
+        const empty = {};
+        const emptyArray = [];
+        localStorageClass.setMusics(empty);
+        localStorageClass.setPlayLists(empty);
+        localStorageClass.setCurrentPlayList(emptyArray);
+        localStorageClass.setMusicsAnime(empty);
+        localStorageClass.setMusicsName(empty);
+        localStorageClass.setMusicsSeason(empty);
     }
 
     function isNull(obj) {

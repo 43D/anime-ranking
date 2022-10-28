@@ -30,6 +30,11 @@ export function events() {
         search();
         clear();
         selectQuality();
+        btnMedia();
+    }
+
+    function btnMedia(){
+        changeVolume();
     }
 
     function btnsMusics() {
@@ -159,6 +164,7 @@ export function events() {
         $(".playNow").click(function () {
             const id = this.id.split("-music-")[1];
             mediaManagerClass.setOneTimeline(id);
+            mediaManagerClass.play();
         });
     }
 
@@ -247,6 +253,11 @@ export function events() {
         });
     }
 
+    function changeVolume() {
+        $("#volume").click(function () {
+            mediaManagerClass.setVolume(($("#volume").val() / 100));
+        })
+    }
     return {
         init,
         start,

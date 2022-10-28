@@ -8,7 +8,6 @@ export function display() {
     function init(config = {}) {
         playerClass = (config.player) ? config.player : player();
         eventsClass = (config.events) ? config.events : events();
-        eventsClass.init({ 'display': this, 'player': playerClass });
         eventsClass.start();
     }
 

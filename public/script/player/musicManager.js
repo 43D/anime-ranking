@@ -70,8 +70,10 @@ export function musicManager() {
 
     }
 
-    function getMusicById(idMusic) {
-        return musics[idMusic];
+    function getMusicById(id) {
+        console.log(id);
+        console.log(musics);
+        return musics[id];
     }
 
     function getNameItem(idMusic) {

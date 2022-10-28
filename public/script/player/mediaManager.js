@@ -18,7 +18,59 @@ export function mediaManager() {
     function start() {
         const config = localStorageObjectClass.getConfig();
         selectStreaming(config["streaming"]);
+        setVolume(config["volume"]);
         createList();
+    }
+
+    function play() {
+        const config = localStorageObjectClass.getConfig();
+        const musicId = config["lastMusic"];
+        const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
+        console.log(music);
+        setVolume(config["volume"]);
+        switch (config["streaming"]) {
+            case "720":
+                if (music.urls.catbox["720"])
+                    playVideo(music.urls.catbox["720"]);
+                else
+                    playAudio(music.urls.catbox["0"]);
+                break;
+            case "480":
+                if (music.urls.catbox["480"])
+                    playVideo(music.urls.catbox["480"]);
+                else
+                    playAudio(music.urls.catbox["0"]);
+                break;
+            default:
+                playAudio(music.urls.catbox["0"]);
+                break;
+        }
+    }
+
+    function playAudio(url) {
+        $("#btn-video-collapse").prop("disabled", true);
+        if (!$("#display-video").attr("class").includes("d-none"))
+            $("#btn-video-collapse").click();
+        cleanMedia();
+        $("#audio").attr("src", url);
+        $("#audio")[0].play();
+    }
+
+    function playVideo(url) {
+        $("#btn-video-collapse").prop("disabled", false);
+        cleanMedia();
+        $("#video").attr("src", url);
+        $("#video")[0].play();
+    }
+
+    function setVolume(vol) {
+        $("#video")[0].volume = vol;
+        $("#audio")[0].volume = vol;
+        $("#volume").val((Number(vol) * 100));
+        
+        let config = localStorageObjectClass.getConfig();
+        config["volume"] = vol;
+        localStorageObjectClass.setConfig(config);
     }
 
     function createList() {
@@ -65,6 +117,7 @@ export function mediaManager() {
     function setOneTimeline(id) {
         currentPlayList = [];
         currentPlayList[0] = id;
+        firstMusic();
         save();
     }
     function addOneTimeline(id) {
@@ -75,6 +128,7 @@ export function mediaManager() {
     }
     function setAllTimeline(array = []) {
         currentPlayList = array.join().split(',');
+        firstMusic();
         save();
     }
 
@@ -83,11 +137,24 @@ export function mediaManager() {
         createList();
     }
 
+    function cleanMedia() {
+        $("#video").attr("src", "");
+        $("#audio").attr("src", "");
+    }
+
+    function firstMusic(){
+        let config = localStorageObjectClass.getConfig();
+        config["lastMusic"] = 0;
+        localStorageObjectClass.setConfig(config);
+    }
+
     return {
         init,
         setStreaming,
         setOneTimeline,
         addOneTimeline,
-        setAllTimeline
+        setAllTimeline,
+        setVolume,
+        play
     }
 }

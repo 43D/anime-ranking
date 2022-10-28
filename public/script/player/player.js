@@ -33,11 +33,11 @@ export function player() {
 
         defaultConfigsClass.init();
         searchClass.init();
-        displayClass.init({ "player": this });
+        eventsClass.init({ "mediaManager": mediaManagerClass, "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass });
+        displayClass.init({ "player": this, "events":eventsClass });
         musicManagerClass.init({ "events": eventsClass });
         playlistManagerClass.init({ "events": eventsClass });
         mediaManagerClass.init({ "musicManager": musicManagerClass });
-        eventsClass.init({ "mediaManager": mediaManagerClass, "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass });
         
         getParam();
     }
