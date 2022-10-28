@@ -7,6 +7,7 @@ let musicManagerClass;
 let localStorageObjectClass;
 export function mediaManager() {
     let currentPlayList = [];
+    let source = "";
 
     function init(config = {}) {
         localStorageObjectClass = (config.localStorageObject) ? config.localStorageObject : localStorageObject();
@@ -20,14 +21,6 @@ export function mediaManager() {
         selectStreaming(config["streaming"]);
         setVolume(config["volume"]);
         createList();
-    }
-
-    function isPlay() {
-        if (!$("#video")[0].paused)
-            return true;
-        if (!$("#audio")[0].paused)
-            return true;
-        return false;
     }
 
     function play() {
@@ -62,9 +55,16 @@ export function mediaManager() {
 
     function endPlay() {
         let config = localStorageObjectClass.getConfig();
-        console.log(config["playnext"]);
         if (Number(config["playnext"]) > -1) {
             nextMusic();
+            play();
+        }
+    }
+
+    function previewPlay() {
+        let config = localStorageObjectClass.getConfig();
+        if (Number(config["playlast"]) > -1) {
+            previewMusic();
             play();
         }
     }
@@ -77,6 +77,15 @@ export function mediaManager() {
         createNextPlay();
     }
 
+    function previewMusic() {
+        let config = localStorageObjectClass.getConfig();
+
+        config["playnext"] = config["playnow"];
+        config["playnow"] = config["playlast"];
+        localStorageObjectClass.setConfig(config);
+        createPreviewPlay();
+    }
+
     function playAudio(url) {
         $("#btn-video-collapse").prop("disabled", true);
         if (!$("#display-video").attr("class").includes("d-none"))
@@ -84,6 +93,7 @@ export function mediaManager() {
         cleanMedia();
         $("#audio").attr("src", url);
         $("#audio")[0].play();
+        source = "audio";
     }
 
     function playVideo(url) {
@@ -92,6 +102,7 @@ export function mediaManager() {
         $("#video").attr("src", url);
         $("#video")[0].play();
         $("#video").prop("controls", false);
+        source = "video";
     }
 
     function setVolume(vol) {
@@ -195,6 +206,58 @@ export function mediaManager() {
         localStorageObjectClass.setConfig(config);
     }
 
+    function createPreviewPlay() {
+        let config = localStorageObjectClass.getConfig();
+
+        const next = Number(config["playnow"]) - 1;
+        if (currentPlayList[next])
+            config["playlast"] = next;
+        else if (config["loop"])
+            config["playlast"] = currentPlayList.length - 1;
+        else
+            config["playlast"] = -1;
+
+        localStorageObjectClass.setConfig(config);
+    }
+
+    function isPlay() {
+        if (!$("#video")[0].paused)
+            return true;
+        if (!$("#audio")[0].paused)
+            return true;
+        return false;
+    }
+
+    function actionPlay() {
+        if (source == "audio") {
+            console.log("au");
+            if (isPlay()) {
+                console.log();
+                $("#audio")[0].pause();
+            } else {
+                console.log();
+                $("#audio")[0].play();
+            }
+        }
+        else if (source == "video") {
+            console.log("vi");
+            if (isPlay()) {
+                console.log();
+                $("#video")[0].pause();
+            } else {
+                console.log();
+                $("#video")[0].play();
+            }
+        }
+        else {
+            console.log("no");
+            firstMusic();
+            createNextPlay();
+            play();
+        }
+
+    }
+
     return {
         init,
         setStreaming,
@@ -203,6 +266,8 @@ export function mediaManager() {
         setAllTimeline,
         setVolume,
         play,
-        endPlay
+        endPlay,
+        previewPlay,
+        actionPlay
     }
 }

@@ -41,6 +41,9 @@ export function events() {
         timelineUpdate();
         mouseTimeline();
         touchTimeline();
+        btnNext();
+        btnPreview();
+        btnPlay();
     }
 
     function btnsMusics() {
@@ -221,7 +224,7 @@ export function events() {
         $(".playlistNow").click(function () {
             const id = this.id.split("playlist-id-")[1];
             mediaManagerClass.setAllTimeline(playlistManagerClass.getAllById(id));
-            mediaManagerClass.play();   
+            mediaManagerClass.play();
         });
     }
 
@@ -293,9 +296,11 @@ export function events() {
                 $("#timeline-now").val(120000 / $("#audio")[0].duration * $("#audio")[0].currentTime);
             time = $("#audio")[0].currentTime;
         }
-        const minutes = (Math.floor(time / 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
-        const seconds = (Math.floor(time - minutes * 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
-        $("#time").html(minutes + ":" + seconds);
+        if (time > 0) {
+            const minutes = (Math.floor(time / 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
+            const seconds = (Math.floor(time - minutes * 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
+            $("#time").html(minutes + ":" + seconds);
+        }
     }
 
     function mouseTimeline() {
@@ -329,6 +334,23 @@ export function events() {
             seconds = $("#audio")[0].duration / 120000 * $("#timeline-now").val();
             $("#audio")[0].currentTime = seconds;
         }
+    }
+
+    function btnNext() {
+        $("#btn-next").click(function () {
+            mediaManagerClass.endPlay();
+        });
+    }
+    function btnPreview() {
+        $("#btn-preview").click(function () {
+            mediaManagerClass.previewPlay();
+        });
+    }
+
+    function btnPlay() {
+        $("#btn-play").click(function () {
+            mediaManagerClass.actionPlay();
+        });
     }
 
     return {
