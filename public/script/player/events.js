@@ -11,6 +11,8 @@ let displayClass;
 let playerClass;
 
 export function events() {
+    let mouseUp = true;
+
     function init(config = {}) {
         displayClass = (config.display) ? config.display : display();
         playerClass = (config.player) ? config.player : player();
@@ -33,8 +35,11 @@ export function events() {
         btnMedia();
     }
 
-    function btnMedia(){
+    function btnMedia() {
         changeVolume();
+        mediaEnd();
+        timelineUpdate();
+        mouseTimeline();
     }
 
     function btnsMusics() {
@@ -258,6 +263,57 @@ export function events() {
             mediaManagerClass.setVolume(($("#volume").val() / 100));
         })
     }
+
+    function mediaEnd() {
+        $("#audio").on("ended", function () {
+            mediaManagerClass.endPlay();
+        });
+        $("#video").on("ended", function () {
+            mediaManagerClass.endPlay();
+        });
+    }
+
+    function timelineUpdate() {
+        $("#video").bind('timeupdate', setTimeline);
+        $("#audio").bind('timeupdate', setTimeline);
+    }
+
+    function setTimeline() {
+
+        let time = 0;
+        if (!$("#video")[0].paused) {
+            if (mouseUp)
+                $("#timeline-now").val(120000 / $("#video")[0].duration * $("#video")[0].currentTime);
+            time = $("#video")[0].currentTime;
+        }
+        if (!$("#audio")[0].paused) {
+            if (mouseUp)
+                $("#timeline-now").val(120000 / $("#audio")[0].duration * $("#audio")[0].currentTime);
+            time = $("#audio")[0].currentTime;
+        }
+        const minutes = (Math.floor(time / 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
+        const seconds = (Math.floor(time - minutes * 60)).toLocaleString("pt-br", { minimumIntegerDigits: 2 });
+        $("#time").html(minutes + ":" + seconds);
+    }
+
+    function mouseTimeline() {
+        $("#timeline-now").mousedown(function () {
+            mouseUp = false;
+        });
+        $("#timeline-now").mouseup(function () {
+            let seconds = 0;
+            if (!$("#video")[0].paused) {
+                seconds = $("#video")[0].duration / 120000 * $("#timeline-now").val();
+                $("#video")[0].currentTime = seconds;
+            }
+            if (!$("#audio")[0].paused) {
+                seconds = $("#audio")[0].duration / 120000 * $("#timeline-now").val();
+                $("#audio")[0].currentTime = seconds;
+            }
+            mouseUp = true;
+        });
+    }
+
     return {
         init,
         start,

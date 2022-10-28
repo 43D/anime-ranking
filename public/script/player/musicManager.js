@@ -71,8 +71,6 @@ export function musicManager() {
     }
 
     function getMusicById(id) {
-        console.log(id);
-        console.log(musics);
         return musics[id];
     }
 

@@ -22,29 +22,59 @@ export function mediaManager() {
         createList();
     }
 
+    function isPlay() {
+        if (!$("#video")[0].paused)
+            return true;
+        if (!$("#audio")[0].paused)
+            return true;
+        return false;
+    }
+
     function play() {
         const config = localStorageObjectClass.getConfig();
-        const musicId = config["lastMusic"];
-        const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
-        console.log(music);
-        setVolume(config["volume"]);
-        switch (config["streaming"]) {
-            case "720":
-                if (music.urls.catbox["720"])
-                    playVideo(music.urls.catbox["720"]);
-                else
+        const musicId = config["playnow"];
+        if (musicId == "-1") {
+            firstMusic();
+            play();
+        } else {
+            const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
+            setVolume(config["volume"]);
+            $("#name-bar").html(music.name);
+            switch (config["streaming"]) {
+                case "720":
+                    if (music.urls.catbox["720"])
+                        playVideo(music.urls.catbox["720"]);
+                    else
+                        playAudio(music.urls.catbox["0"]);
+                    break;
+                case "480":
+                    if (music.urls.catbox["480"])
+                        playVideo(music.urls.catbox["480"]);
+                    else
+                        playAudio(music.urls.catbox["0"]);
+                    break;
+                default:
                     playAudio(music.urls.catbox["0"]);
-                break;
-            case "480":
-                if (music.urls.catbox["480"])
-                    playVideo(music.urls.catbox["480"]);
-                else
-                    playAudio(music.urls.catbox["0"]);
-                break;
-            default:
-                playAudio(music.urls.catbox["0"]);
-                break;
+                    break;
+            }
         }
+    }
+
+    function endPlay() {
+        let config = localStorageObjectClass.getConfig();
+        console.log(config["playnext"]);
+        if (Number(config["playnext"]) > -1) {
+            nextMusic();
+            play();
+        }
+    }
+
+    function nextMusic() {
+        let config = localStorageObjectClass.getConfig();
+        config["playlast"] = config["playnow"];
+        config["playnow"] = config["playnext"];
+        localStorageObjectClass.setConfig(config);
+        createNextPlay();
     }
 
     function playAudio(url) {
@@ -61,13 +91,14 @@ export function mediaManager() {
         cleanMedia();
         $("#video").attr("src", url);
         $("#video")[0].play();
+        $("#video").prop("controls", false);
     }
 
     function setVolume(vol) {
         $("#video")[0].volume = vol;
         $("#audio")[0].volume = vol;
         $("#volume").val((Number(vol) * 100));
-        
+
         let config = localStorageObjectClass.getConfig();
         config["volume"] = vol;
         localStorageObjectClass.setConfig(config);
@@ -123,6 +154,7 @@ export function mediaManager() {
     function addOneTimeline(id) {
         if (!currentPlayList.includes(id)) {
             currentPlayList[currentPlayList.length] = id;
+            createNextPlay();
             save();
         }
     }
@@ -142,9 +174,23 @@ export function mediaManager() {
         $("#audio").attr("src", "");
     }
 
-    function firstMusic(){
+    function firstMusic() {
         let config = localStorageObjectClass.getConfig();
-        config["lastMusic"] = 0;
+        config["playnow"] = 0;
+        config["playnext"] = -1;
+        localStorageObjectClass.setConfig(config);
+    }
+    function createNextPlay() {
+        let config = localStorageObjectClass.getConfig();
+
+        const next = Number(config["playnow"]) + 1;
+        if (currentPlayList[next])
+            config["playnext"] = next;
+        else if (config["loop"])
+            config["playnext"] = 0;
+        else
+            config["playnext"] = -1;
+
         localStorageObjectClass.setConfig(config);
     }
 
@@ -155,6 +201,7 @@ export function mediaManager() {
         addOneTimeline,
         setAllTimeline,
         setVolume,
-        play
+        play,
+        endPlay
     }
 }

@@ -22,7 +22,9 @@ export function defaultConfigs() {
     function createConfig() {
         const config = {
             "volume": 1.0,
-            "lastMusic": "-1",
+            "playlast": "-1",
+            "playnow": "-1",
+            "playnext": "-1",
             "playtime": "0",
             "streaming": "0",
             "loop": false,

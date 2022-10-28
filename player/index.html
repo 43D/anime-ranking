@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="col d-none">
-                    <audio id="audio"  src="https://files.catbox.moe/k6a790.mp3"></audio>
+                    <audio id="audio" src="https://files.catbox.moe/k6a790.mp3"></audio>
 
                 </div>
             </div>
@@ -243,10 +243,18 @@
                 </form>
                 <div class="col-12 col-sm my-1">
                     <div class="ui-seekbar px-3 d-flex h-100 justify-content-center flex-column">
-                        <input type="range" class="ui-slider w-100" min="1" max="12000" value="35">
-                        <p class="h-100 mb-0 text-center"> <span id="time">00:00</span> - <span>nome da música
-                                aaaaaaaaaaa</span>
-                        </p>
+                        <input type="range" id="timeline-now" class="ui-slider w-100" min="0" max="120000" value="0">
+                        <div class="h-100 mb-0 row">
+                            <div class="col-3 col-sm-2">
+                                <span id="time">00:00</span>
+                            </div>
+                            <div class="col text-center">
+                                <span id="name-bar">... </span>
+                            </div>
+                            <div class="col-3 col-sm-2">
+                                <span id="duration">00:00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-3 col-xl-2">
