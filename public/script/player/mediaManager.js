@@ -35,7 +35,9 @@ export function mediaManager() {
         } else {
             const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
             setVolume(config["volume"]);
-            $("#name-bar").html(music.name);
+            
+            $("#title-head").html(music.name + " - " + music.artist);
+            $("#name-bar").html(music.name + " - " + music.artist);
             switch (config["streaming"]) {
                 case "720":
                     if (music.urls.catbox["720"])
