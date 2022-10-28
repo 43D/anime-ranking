@@ -44,6 +44,8 @@ export function events() {
         btnNext();
         btnPreview();
         btnPlay();
+        btnLoop();
+        btnMute();
     }
 
     function btnsMusics() {
@@ -353,6 +355,25 @@ export function events() {
         });
     }
 
+    function btnLoop() {
+        $("#btn-loop").click(function () {
+            if (mediaManagerClass.actionLoop())
+                $("#btn-loop").removeClass("btn-outline-secondary").addClass("btn-success");
+            else
+                $("#btn-loop").removeClass("btn-success").addClass("btn-outline-secondary");
+
+        });
+    }
+
+    function btnMute() {
+        $("#volume-mute").click(function () {
+            if (mediaManagerClass.actionMute())
+                $("#volume-mute").removeClass("btn-outline-secondary").addClass("btn-danger");
+            else
+                $("#volume-mute").removeClass("btn-danger").addClass("btn-outline-secondary");
+
+        });
+    }
     return {
         init,
         start,

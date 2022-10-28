@@ -21,6 +21,7 @@ export function mediaManager() {
         selectStreaming(config["streaming"]);
         setVolume(config["volume"]);
         createList();
+        btnActionStart();
     }
 
     function play() {
@@ -57,6 +58,9 @@ export function mediaManager() {
         let config = localStorageObjectClass.getConfig();
         if (Number(config["playnext"]) > -1) {
             nextMusic();
+            play();
+        } else if (config["loop"]) {
+            firstMusic();
             play();
         }
     }
@@ -190,6 +194,7 @@ export function mediaManager() {
         let config = localStorageObjectClass.getConfig();
         config["playnow"] = 0;
         config["playnext"] = -1;
+        config["playlast"] = -1;
         localStorageObjectClass.setConfig(config);
     }
     function createNextPlay() {
@@ -258,6 +263,33 @@ export function mediaManager() {
 
     }
 
+    function actionLoop() {
+        let config = localStorageObjectClass.getConfig();
+        config["loop"] = (config["loop"]) ? false : true;
+        localStorageObjectClass.setConfig(config);
+        return config["loop"];
+    }
+
+    function btnActionStart() {
+        const config = localStorageObjectClass.getConfig();
+        if (config["loop"])
+            $("#btn-loop").removeClass("btn-outline-secondary").addClass("btn-success");
+        else
+            $("#btn-loop").removeClass("btn-success").addClass("btn-outline-secondary");
+        if (config["mute"])
+            $("#volume-mute").removeClass("btn-outline-secondary").addClass("btn-danger");
+        else
+            $("#volume-mute").removeClass("btn-danger").addClass("btn-outline-secondary");
+
+    }
+
+    function actionMute() {
+        let config = localStorageObjectClass.getConfig();
+        config["mute"] = (config["mute"]) ? false : true;
+        localStorageObjectClass.setConfig(config);
+        return config["mute"];
+    }
+
     return {
         init,
         setStreaming,
@@ -268,6 +300,8 @@ export function mediaManager() {
         play,
         endPlay,
         previewPlay,
-        actionPlay
+        actionPlay,
+        actionLoop,
+        actionMute
     }
 }
