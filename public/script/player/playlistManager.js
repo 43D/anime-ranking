@@ -278,6 +278,10 @@ export function playlistManager() {
         reload();
     }
 
+    function getAllById(id){
+        return playlist[id][0].musics;
+    }
+
     return {
         init,
         newPlayList,
@@ -286,6 +290,7 @@ export function playlistManager() {
         clonePlaylist,
         removeById,
         editById,
-        editPlaylistForm
+        editPlaylistForm,
+        getAllById
     }
 }
