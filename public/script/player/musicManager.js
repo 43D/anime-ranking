@@ -70,11 +70,16 @@ export function musicManager() {
 
     }
 
+    function getMusicById(idMusic) {
+        return musics[idMusic];
+    }
+
     function getNameItem(idMusic) {
         let json = {};
         json[idMusic] = musics[idMusic].name;
         return json;
     }
+
     function makeItem(idMusic, typeList) {
         let li = $("<li>").addClass("list-group-item");
         let divRow = makeMenuMusic(idMusic, typeList);
@@ -282,6 +287,7 @@ export function musicManager() {
     return {
         init,
         reload,
-        removeById
+        removeById,
+        getMusicById
     }
 }

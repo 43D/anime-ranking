@@ -23,20 +23,22 @@ export function player() {
     function init() {
         localStorageObjectClass = localStorageObject();
         defaultConfigsClass = defaultConfigs();
-        defaultConfigsClass.init();
         themeClass = theme();
         mediaManagerClass = mediaManager();
-        mediaManagerClass.init();
         displayClass = display();
-        displayClass.init({ "player": this });
         musicManagerClass = musicManager();
-        musicManagerClass.init({ "events": eventsClass });
         playlistManagerClass = playlistManager();
-        playlistManagerClass.init({ "events": eventsClass });
         eventsClass = events();
-        eventsClass.init({ "mediaManager": mediaManagerClass, "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass });
         searchClass = search();
+
+        defaultConfigsClass.init();
         searchClass.init();
+        displayClass.init({ "player": this });
+        musicManagerClass.init({ "events": eventsClass });
+        playlistManagerClass.init({ "events": eventsClass });
+        mediaManagerClass.init({ "musicManager": musicManagerClass });
+        eventsClass.init({ "mediaManager": mediaManagerClass, "display": displayClass, "player": this, "playlistManager": playlistManagerClass, "musicManager": musicManagerClass });
+        
         getParam();
     }
 
