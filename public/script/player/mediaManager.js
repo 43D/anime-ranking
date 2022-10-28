@@ -36,7 +36,7 @@ export function mediaManager() {
             const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
             setVolume(config["volume"]);
             $(".list-group-item").removeClass("list-group-item-success");
-            $($("#list-play-ul").children()[musicId]).addClass(" list-group-item-success");
+            $($("#list-play-ul").children().get(musicId)).addClass(" list-group-item-success");
             $("#title-head").html(music.name + " - " + music.artist);
             $("#name-bar").html(music.name + " - " + music.artist);
 
@@ -157,7 +157,7 @@ export function mediaManager() {
         });
         eventsClass.skippedPlay();
         $(".list-group-item").removeClass("list-group-item-success");
-        $($("#list-play-ul").children()[musicId]).addClass(" list-group-item-success");
+        $($("#list-play-ul").children().get(musicId)).addClass(" list-group-item-success");
     }
 
     function makeIcon(icon) {
