@@ -36,7 +36,7 @@ export function mediaManager() {
             const music = musicManagerClass.getMusicById(currentPlayList[Number(musicId)]);
             setVolume(config["volume"]);
             $(".list-group-item").removeClass("list-group-item-success");
-            $($("#list-play-ul").children().get(musicId)).addClass(" list-group-item-success");
+            $($("#list-play-ul").children()[musicId]).addClass(" list-group-item-success");
             $("#title-head").html(music.name + " - " + music.artist);
             $("#name-bar").html(music.name + " - " + music.artist);
 
@@ -157,7 +157,7 @@ export function mediaManager() {
         });
         eventsClass.skippedPlay();
         $(".list-group-item").removeClass("list-group-item-success");
-        $($("#list-play-ul").children().get(musicId)).addClass(" list-group-item-success");
+        $($("#list-play-ul").children()[musicId]).addClass(" list-group-item-success");
     }
 
     function makeIcon(icon) {
@@ -173,7 +173,7 @@ export function mediaManager() {
             btnPlay.append(makeIcon("bi bi-play"));
             div1.append(btnPlay);
 
-            let div2 = $("<div>").addClass("col-8 col-sm d-flex justify-content-start align-items-center").html(music.name + " - " + music.artist);
+            let div2 = $("<div>").addClass("col-8 col-sm d-flex justify-content-start align-items-center").text(music.name + " - " + music.artist);
             let div3 = $("<div>").addClass("col-2 col-sm-1 d-flex align-items-center").html("00:00");
 
             row.append(div1);
