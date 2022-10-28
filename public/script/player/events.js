@@ -313,6 +313,7 @@ export function events() {
         };
         $("#timeline-now")[0].ontouchend = function () {
             changeTime();
+            alert("thouch end: " + $("#timeline-now").val());
             mouseUp = true;
         };
     }
