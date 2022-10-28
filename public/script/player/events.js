@@ -40,6 +40,7 @@ export function events() {
         mediaEnd();
         timelineUpdate();
         mouseTimeline();
+        touchTimeline();
     }
 
     function btnsMusics() {
