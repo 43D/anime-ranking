@@ -301,17 +301,31 @@ export function events() {
             mouseUp = false;
         });
         $("#timeline-now").mouseup(function () {
-            let seconds = 0;
-            if (!$("#video")[0].paused) {
-                seconds = $("#video")[0].duration / 120000 * $("#timeline-now").val();
-                $("#video")[0].currentTime = seconds;
-            }
-            if (!$("#audio")[0].paused) {
-                seconds = $("#audio")[0].duration / 120000 * $("#timeline-now").val();
-                $("#audio")[0].currentTime = seconds;
-            }
+            changeTime();
             mouseUp = true;
         });
+    }
+
+    function touchTimeline() {
+        $("#timeline-now")[0].ontouchstart = function () {
+            mouseUp = false;
+        };
+        $("#timeline-now")[0].ontouchend = function () {
+            changeTime();
+            mouseUp = true;
+        };
+    }
+
+    function changeTime() {
+        let seconds = 0;
+        if (!$("#video")[0].paused) {
+            seconds = $("#video")[0].duration / 120000 * $("#timeline-now").val();
+            $("#video")[0].currentTime = seconds;
+        }
+        if (!$("#audio")[0].paused) {
+            seconds = $("#audio")[0].duration / 120000 * $("#timeline-now").val();
+            $("#audio")[0].currentTime = seconds;
+        }
     }
 
     return {
