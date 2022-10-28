@@ -22,6 +22,7 @@ export function mediaManager() {
     }
 
     function createList() {
+        $("#list-play-ul").empty();
         currentPlayList.forEach(function (k) {
             makeLi(k, musicManagerClass.getMusicById(k));
         });
@@ -62,7 +63,8 @@ export function mediaManager() {
     }
 
     function setOneTimeline(id) {
-        currentPlayList = [id];
+        currentPlayList = [];
+        currentPlayList[0] = id;
         save();
     }
     function addOneTimeline(id) {
