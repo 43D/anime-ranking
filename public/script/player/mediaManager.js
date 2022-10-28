@@ -289,6 +289,30 @@ export function mediaManager() {
         return config["mute"];
     }
 
+    function shuffle() {
+        currentPlayList = shuffleArray(currentPlayList);
+
+        firstMusic();
+        createNextPlay();
+        save();
+        if (isPlay())
+            play();
+    }
+
+    function shuffleArray(array) {
+        let currentIndex = array.length;
+        let randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+
+        return array;
+    }
+
     return {
         init,
         setStreaming,
@@ -301,6 +325,7 @@ export function mediaManager() {
         previewPlay,
         actionPlay,
         actionLoop,
-        actionMute
+        actionMute,
+        shuffle
     }
 }

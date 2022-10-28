@@ -46,6 +46,7 @@ export function events() {
         btnPlay();
         btnLoop();
         btnMute();
+        btnShuffle();
     }
 
     function btnsMusics() {
@@ -372,6 +373,12 @@ export function events() {
             else
                 $("#volume-mute").removeClass("btn-danger").addClass("btn-outline-secondary");
             mediaManagerClass.setVolume();
+        });
+    }
+
+    function btnShuffle() {
+        $("#btn-random").click(function () {
+            mediaManagerClass.shuffle();
         });
     }
     return {
