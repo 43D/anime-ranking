@@ -161,6 +161,7 @@ export function mediaManager() {
     function setAllTimeline(array = []) {
         currentPlayList = array.join().split(',');
         firstMusic();
+        createNextPlay();
         save();
     }
 

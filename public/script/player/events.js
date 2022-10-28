@@ -221,6 +221,7 @@ export function events() {
         $(".playlistNow").click(function () {
             const id = this.id.split("playlist-id-")[1];
             mediaManagerClass.setAllTimeline(playlistManagerClass.getAllById(id));
+            mediaManagerClass.play();   
         });
     }
 
