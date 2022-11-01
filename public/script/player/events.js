@@ -33,6 +33,7 @@ export function events() {
         clear();
         selectQuality();
         btnMedia();
+        radioImport();
     }
 
     function btnMedia() {
@@ -192,7 +193,7 @@ export function events() {
         $(".playlistAdd").click(function () {
             const id = this.id.split("-playlist-music-")[1];
             $("#id-playlist-add").val(id);
-            
+
         });
     }
 
@@ -389,6 +390,13 @@ export function events() {
         });
     }
 
+    function radioImport() {
+        $(".radioImport").click(function () {
+            $(".importOptionDisplay").addClass("d-none");
+            $("#import-"+$(this).val()).removeClass("d-none");
+        });
+
+    }
     return {
         init,
         start,
