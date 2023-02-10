@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONIMAI CAR</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+    }
+
+    video {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <video id="video" src="https://files.catbox.moe/wl4b3g.mp4" loop preload="auto" autoplay muted></video>
+</body>
+
+<script>
+    const v = document.getElementById("video");
+    v.onloadeddata = () => {
+        v.play();
+    };
+</script>
+
+</html>
