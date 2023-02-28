@@ -18,7 +18,7 @@
             background-color: #000;
         }
 
-        .video {
+        .video, iframe {
             height: 100%;
             width: 100%;
         }
@@ -27,31 +27,37 @@
 
 
 <body>
-    <iframe class="video" id="player" type="text/html"
-        src="https://www.youtube.com/embed/c7r5tuhqHU8?wmode=opaque&autohide=1&autoplay=1&enablejsapi=1&controls=0"
-        frameborder="0"></iframe>
+    <div class="video" id="player">
 
+    </div>
+
+
+    <script src="https://www.youtube.com/player_api"></script>
     <script>
         window.addEventListener('load', () => loadVideo());
 
-        function loadVideo(){
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/player_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        function loadVideo() {
             var player;
             function onYouTubePlayerAPIReady() {
                 player = new YT.Player('player', {
-                    playerVars: { 'autoplay': 1, 'controls': 1, 'autohide': 1, 'wmode': 'opaque', 'controls': 0 },
+                    playerVars: { 'autoplay': 1, 'controls': 1, 'autohide': 1, 'wmode': 'opaque', 'controls': 1 },
                     videoId: 'c7r5tuhqHU8',
                     events: {
-                        'onReady': onPlayerReady
+                        'onReady': onPlayerReady,
+                        onStateChange: onPlayerStateChange
                     }
                 });
             }
 
             function onPlayerReady(event) {
             }
+
+            function onPlayerStateChange(event) {
+                if (event.data == done) {
+                    console.log("done done done");
+                }
+            }
+            onYouTubePlayerAPIReady();
         }
     </script>
 </body>
