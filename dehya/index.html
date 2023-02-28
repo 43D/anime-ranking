@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dehya</title>
+    <title>Dehya's Friday Night</title>
     <style>
         body {
             margin: 0px;
@@ -23,27 +23,37 @@
             height: 100%;
             width: 100%;
         }
+
+        #super {
+            top: 0;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            position: absolute;
+        }
     </style>
 </head>
 
 
 <body>
+    <div id="super"></div>
     <div class="video" id="player"></div>
 
     <script src="https://www.youtube.com/player_api"></script>
     <script>
         let player;
+        let vol = true;
         window.addEventListener('load', () => loadVideo());
+        document.getElementById("super").addEventListener("click", () => volume());
 
         function loadVideo() {
-
             function onYouTubePlayerAPIReady() {
                 player = new YT.Player('player', {
-                    playerVars: { 'autoplay': 1, 'autohide': 1, 'wmode': 'opaque', 'controls': 0, 'loop': 1 },
+                    playerVars: { 'autoplay': 1, 'rel': 0, 'autohide': 1, 'wmode': 'opaque', 'controls': 0, 'mute': 1 },
                     videoId: 'c7r5tuhqHU8',
                     events: {
                         'onReady': onPlayerReady,
-                        onStateChange: onPlayerStateChange
+                        'onStateChange': onPlayerStateChange
                     }
                 });
             }
@@ -51,8 +61,7 @@
             onYouTubePlayerAPIReady();
 
             function onPlayerReady(event) {
-                player.setLoop(true);
-                player.playVideo();
+
             }
 
             function onPlayerStateChange(event) {
@@ -63,6 +72,39 @@
             }
 
         }
+        function volume() {
+            if (vol) {
+                console.log("volume");
+                player.unMute();
+                vol = false;
+            }
+        }
+
+        function arrow() {
+            document.onkeydown = checkKey;
+            function checkKey(e) {
+                const key = {
+                    '37': volumeDown,
+                    '38': volumeUp,
+                    '39': volumeUp,
+                    '40': volumeDown
+                };
+                e = e || window.event;
+
+                if (key[e.which])
+                    key[e.which]();
+            }
+        }
+
+        function volumeUp() {
+            player.setVolume(player.getVolume() + 10);
+        }
+
+        function volumeDown() {
+            player.setVolume(player.getVolume() - 10);
+        }
+        arrow();
+
     </script>
 </body>
 
