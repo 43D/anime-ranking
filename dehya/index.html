@@ -28,7 +28,7 @@
 
 
 <body>
-    <iframe class="video" id="player" type="text/html"
+    <iframe class="video" id="player"
         src="https://www.youtube.com/embed/c7r5tuhqHU8?wmode=opaque&autohide=1&autoplay=1&enablejsapi=1&controls=0"
         frameborder="0"></iframe>
 
@@ -40,7 +40,7 @@
             var player;
             function onYouTubePlayerAPIReady() {
                 player = new YT.Player('player', {
-                    playerVars: { 'autoplay': 1, 'controls': 1, 'autohide': 1, 'wmode': 'opaque', 'controls': 0 },
+                    playerVars: { 'autoplay': 1, 'autohide': 1, 'wmode': 'opaque', 'controls': 0 },
                     videoId: 'c7r5tuhqHU8',
                     events: {
                         'onReady': onPlayerReady,
@@ -61,5 +61,6 @@
         }
     </script>
 </body>
+
 
 </html>
