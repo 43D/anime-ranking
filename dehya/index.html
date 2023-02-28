@@ -44,7 +44,7 @@
         let player;
         let vol = true;
         window.addEventListener('load', () => loadVideo());
-        document.getElementById("super").addEventListener("click", () => volume());
+        document.getElementById("super").addEventListener("click", () => {volume();  player.playVideo();});
 
         function loadVideo() {
             function onYouTubePlayerAPIReady() {
