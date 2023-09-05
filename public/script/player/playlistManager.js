@@ -143,7 +143,6 @@ export function playlistManager() {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
         ul.append(makeLiDropdown("", "bi bi-collection", "Exibir músicas").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id));
-        ul.append(makeLiDropdown("downPlaylist", "bi bi-box-arrow-down", "JSON", "playlist-down-" + id));
         ul.append(makeLiDropdown("editPlaylist", "bi bi-pencil", "Editar", "playlist-edit-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#editPlaylistModal"));
         ul.append(makeLiDropdown("duplicatePlaylist", "bi bi-clipboard2", "Duplicar", "playlist-duplicate-" + id));
         ul.append(makeLiDropdown("removePlaylist", "bi bi-x-lg", "Remover", "playlist-remove-" + id));
@@ -267,7 +266,8 @@ export function playlistManager() {
         const elMusics = $(".checkboxPlaylistEdit");
         let finalmusics = [];
         elMusics.each(function (index, element) {
-            finalmusics[finalmusics.length] = element.value;
+            if (element.checked)
+                finalmusics[finalmusics.length] = element.value;
         });
 
         const play = { "name": name, musics: finalmusics };
@@ -277,7 +277,7 @@ export function playlistManager() {
         reload();
     }
 
-    function getAllById(id){
+    function getAllById(id) {
         return playlist[id][0].musics;
     }
 
