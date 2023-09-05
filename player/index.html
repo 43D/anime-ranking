@@ -52,15 +52,14 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Músicas
+                                    Songs
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#fast=music-name" id="music-name">Por nome</a>
+                                    <li><a class="dropdown-item" href="#fast=music-name" id="music-name">By name</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#fast=music-anime" id="music-anime">Por anime</a>
+                                    <li><a class="dropdown-item" href="#fast=music-anime" id="music-anime">By anime</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#fast=music-season" id="music-season">Por
-                                            Season</a></li>
+                                    <li><a class="dropdown-item" href="#fast=music-season" id="music-season">By Season</a></li>
                                 </ul>
                             </li>
 
@@ -70,10 +69,9 @@
                                     PlayLists
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#fast=playlist" id="playlist">Suas PlayLists</a>
+                                    <li><a class="dropdown-item" href="#fast=playlist" id="playlist">My PlayLists</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="#fast=new-playlist" id="new-playlist">Criar uma
-                                            PlayList</a></li>
+                                    <li><a class="dropdown-item" href="#fast=new-playlist" id="new-playlist">Create PlayList</a></li>
                                 </ul>
                             </li>
 
@@ -90,7 +88,7 @@
                 </div>
                 <div>
                     <button class="btn btn-outline-secondary" id="reload"><i class="bi bi-arrow-repeat">
-                            Recarregar</i></button>
+                            Reload</i></button>
                     <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#configsModal"
                         id="configs"><i class="bi bi-gear"></i></button>
                 </div>
@@ -116,7 +114,7 @@
     <div id="display-list" class="container-fluid displays d-none">
         <div class="row h-100" style="margin-top: 125px; margin-bottom: 180px; ">
             <div class="col-12 h-100 p-0" id="list-collapse">
-                <h3 class="text-center">Lista de reprodução</h3>
+                <h3 class="text-center">Play queue</h3>
                 <div>
                     <ul class="list-group p-3" id="list-play-ul">
 
@@ -201,8 +199,8 @@
                         </div>
                         <div class="col-12 text-center my-5">
                             <button type="button" class="btn btn-outline-secondary btn-lg"><i class="bi bi-play"></i> Ouvir</button>
-                            <button type="button" class="btn btn-outline-success btn-lg"> Salvar</button>
-                            <button type="button" class="btn btn-outline-danger btn-lg"><i class="bi bi-pencil"></i> Editar</button>
+                            <button type="button" class="btn btn-outline-success btn-lg"> Save</button>
+                            <button type="button" class="btn btn-outline-danger btn-lg"><i class="bi bi-pencil"></i> Edit</button>
                         </div>
                         <div class="col-12">
                             <div class="form-check form-switch">
@@ -271,7 +269,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-3 col-xl-2">
-                    <button id="btn-list-collapse" class="btn btn-outline-secondary w-100">Lista de reprodução</button>
+                    <button id="btn-list-collapse" class="btn btn-outline-secondary w-100">Play queue</button>
                 </div>
             </div>
         </div>
@@ -286,14 +284,14 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <button id="btn-clear-data" class="btn btn-outline-secondary">Limpar dados</button>
+                            <button id="btn-clear-data" class="btn btn-outline-secondary">Clear data</button>
                         </div>
                         <hr>
                         <div>
                             <form action="javascript:void(0);">
-                                <label for="select-quality" class="form-label">Qualidade do streaming</label>
+                                <label for="select-quality" class="form-label">Streaming Quality</label>
                                 <select id="select-quality" class="form-select" aria-label="Qualidade da media">
-                                    <option value="0" selected>Somente Audio (mais leve)</option>
+                                    <option value="0" selected>Only Audio</option>
                                     <option value="480">Video 480p</option>
                                     <option value="720">Video 720p</option>
                                 </select>
@@ -301,7 +299,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -312,7 +310,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5">Adicionar na playlist</h1>
+                        <h1 class="modal-title fs-5">Add on playlist</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -326,9 +324,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary"
-                            data-bs-dismiss="modal">Cancelar</button>
+                            data-bs-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-outline-secondary" id="btn-playlist-add"
-                            data-bs-dismiss="modal">Adicionar</button>
+                            data-bs-dismiss="modal">Add</button>
                     </div>
                 </div>
             </div>
@@ -344,10 +342,10 @@
                     <div class="modal-body">
                         <form action="javascript:void(0);">
                             <input type="hidden" name="id-playlist-edit" value="-1" id="id-playlist-edit">
-                            <label for="name-playlist-edit" class="form-label">Nome: </label>
+                            <label for="name-playlist-edit" class="form-label">Name: </label>
                             <input type="text" class="form-control" name="name-playlist-edit" id="name-playlist-edit">
 
-                            <p class="p-0 m-1">Segure e arraste para ordernar</p>
+                            <p class="p-0 m-1">Hold and drag to sort</p>
                             <div class="mt-2 me-4" id="checks">
                                 <div class="form-check mt-2">
                                     <input class="form-check-input checkboxPlaylistEdit" type="checkbox" value="0"
@@ -361,9 +359,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary"
-                            data-bs-dismiss="modal">Cancelar</button>
+                            data-bs-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-outline-secondary" id="btn-playlist-edit"
-                            data-bs-dismiss="modal">Editar</button>
+                            data-bs-dismiss="modal">Edit</button>
                     </div>
                 </div>
             </div>

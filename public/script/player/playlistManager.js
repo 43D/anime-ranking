@@ -142,10 +142,10 @@ export function playlistManager() {
     function makeOptionMusicList(id) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
-        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir músicas").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id));
-        ul.append(makeLiDropdown("editPlaylist", "bi bi-pencil", "Editar", "playlist-edit-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#editPlaylistModal"));
-        ul.append(makeLiDropdown("duplicatePlaylist", "bi bi-clipboard2", "Duplicar", "playlist-duplicate-" + id));
-        ul.append(makeLiDropdown("removePlaylist", "bi bi-x-lg", "Remover", "playlist-remove-" + id));
+        ul.append(makeLiDropdown("", "bi bi-collection", "Show songs").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-playlist-" + id));
+        ul.append(makeLiDropdown("editPlaylist", "bi bi-pencil", "Edit", "playlist-edit-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#editPlaylistModal"));
+        ul.append(makeLiDropdown("duplicatePlaylist", "bi bi-clipboard2", "Duplicate playlist", "playlist-duplicate-" + id));
+        ul.append(makeLiDropdown("removePlaylist", "bi bi-x-lg", "Remove", "playlist-remove-" + id));
         return ul;
     }
 

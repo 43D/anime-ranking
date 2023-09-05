@@ -133,10 +133,10 @@ export function musicManager() {
     function makeOptionMusicList(idMusic, typeList) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
-        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", typeList + "-add-music-" + idMusic));
-        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", typeList + "-playlist-music-" + idMusic).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
-        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
-        ul.append(makeLiDropdown("removeMusic", "bi bi-x-lg", "Remover", typeList + "-remove-music-" + idMusic));
+        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Add to Play queue", typeList + "-add-music-" + idMusic));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Add to a PlayList", typeList + "-playlist-music-" + idMusic).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
+        ul.append(makeLiDropdown("", "bi bi-collection", "Song information").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#music-" + typeList + idMusic));
+        ul.append(makeLiDropdown("removeMusic", "bi bi-x-lg", "Remove", typeList + "-remove-music-" + idMusic));
 
 
         return ul;
@@ -160,9 +160,9 @@ export function musicManager() {
         let tbody = $("<tbody>");
 
         let tr1 = makeTr();
-        let th1 = makeTh("Música");
+        let th1 = makeTh("Song name");
         let td1 = makeTd(music.name);
-        let th2 = makeTh("Artista");
+        let th2 = makeTh("Artist");
         let td2 = makeTd(music.artist);
         tr1.append(th1);
         tr1.append(td1);
@@ -171,9 +171,9 @@ export function musicManager() {
         tbody.append(tr1);
 
         let tr2 = makeTr();
-        let th3 = makeTh("Tipo");
+        let th3 = makeTh("Type");
         let td3 = makeTd(music.type);
-        let th4 = makeTh("Temporada");
+        let th4 = makeTh("Season");
         let td4 = makeTd(music.season);
         tr2.append(th3);
         tr2.append(td3);

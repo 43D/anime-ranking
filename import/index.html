@@ -36,20 +36,20 @@
         <div class="row" id="divOptions" style="min-height: 65vh;">
             <div class="col-12 vh-81 col-sm-6 col-lg-6 border">
                 <div class="text-center div-height d-flex justify-content-center flex-column">
-                    <h4>Importar um JSON</h4>
-                    <p>Importe um JSON AMQ para ultilizar no Player Music (salvo somente neste navegador)</p>
+                    <h4>Import JSON</h4>
+                    <p>Import a JSON AMQ to use in Play Music (saved in this browser only)</p>
                 </div>
                 <div class="text-center">
-                    <button id="btnImport" class="btn btn-success">Importar JSON AMQ</button>
+                    <button id="btnImport" class="btn btn-success">Import a JSON AMQ</button>
                 </div>
             </div>
             <div class="col-12 vh-81 col-sm-6 col-lg-6 border">
                 <div class="text-center div-height d-flex justify-content-center flex-column">
-                    <h4>Ouvir músicas</h4>
-                    <p>Ouça as músicas de JSON AMQ</p>
+                    <h4>Listen to music</h4>
+                    <p>Open Music Player to listen to JSON AMQ songs</p>
                 </div>
                 <div class="text-center">
-                    <a href="/animes/player" class="btn btn-success">Ouvir rapidamente um JSON</a>
+                    <a href="/animes/player" class="btn btn-success">Open Music Player</a>
                 </div>
             </div>
         </div>
@@ -68,13 +68,13 @@
                     <input type="file" class="form-control" id="fileJson">
                 </div>
                 <div>
-                    <p>Links de exmplos: </p>
+                    <p>AoT sample: </p>
                     <span>https://43d.github.io/animes/snk.json</span>
                 </div>
                 <div class="text-center">
                     <button id="btnConfirmForm" type="button"
-                        class=" btn btn-outline-success btn-lg my-5">Confirmar</button>
-                    <button id="btnClean" type="button" class=" btn btn-outline-danger btn-lg my-5">Limpar</button>
+                        class=" btn btn-outline-success btn-lg my-5">Confirm</button>
+                    <button id="btnClean" type="button" class=" btn btn-outline-danger btn-lg my-5">Clear</button>
                 </div>
             </form>
         </div>
@@ -84,8 +84,8 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">Selecione</th>
-                                <th scope="col">Música</th>
+                                <th scope="col">Select</th>
+                                <th scope="col">Song name</th>
                                 <th scope="col">Anime</th>
                                 <th scope="col">Audio</th>
                                 <th scope="col">MyAnimeList</th>
@@ -101,21 +101,21 @@
                 <div class="text-center">
                     <input type="checkbox" name="newPlaylist" id="newPlaylist">
                     <label class="form-check-label" for="newPlaylist">
-                        Nova PlayList??
+                        Create a new playList ??
                     </label>
                     <br>
                     <input type="text" class="form-control" name="newPlaylistName" id="newPlaylistName" disabled>
                     <br>
-                    <button class="btn btn-outline-success" id="btnSalvar">Salvar</button>
-                    <button class="btn btn-outline-danger">Não salvar</button>
+                    <button class="btn btn-outline-success" id="btnSalvar">Save</button>
+                    <button class="btn btn-outline-danger">not save it</button>
                 </div>
             </form>
         </div>
         <div class="row d-none" id="divFinal">
             <div class="text-center div-height d-flex justify-content-center flex-column" style="min-height: 65vh;">
                 <h4>Tudo OK</h4>
-                <p>Acesse player de música.</p>
-                <a class="btn btn-success" href="/animes/player">Player Music</a>
+                <p>Access music player.</p>
+                <a class="btn btn-success" href="/animes/player">Open Player Music</a>
             </div>
         </div>
     </div>

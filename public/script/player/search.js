@@ -128,10 +128,9 @@ export function search() {
     function makeOptionMusicList(id) {
         let ul = $("<ul>").addClass("dropdown-menu").attr("style", "z-index: 1035;");
 
-        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Adicionar na fila", "search-add-music-" + id));
-        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Adicionar a uma PlayList", "search-playlist-music-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
-        ul.append(makeLiDropdown("", "bi bi-collection", "Exibir informações").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-search-" + id));
-        ul.append(makeLiDropdown("downloadMusic", "bi bi-box-arrow-down", "JSON", "search-down-music-" + id));
+        ul.append(makeLiDropdown("addMusic", "bi bi-collection", "Add to Play queue", "search-add-music-" + id));
+        ul.append(makeLiDropdown("playlistAdd", "bi bi-journal-plus", "Add to a PlayList", "search-playlist-music-" + id).attr("data-bs-toggle", "modal").attr("data-bs-target", "#addPlaylistModal"));
+        ul.append(makeLiDropdown("", "bi bi-collection", "Song information").attr("data-bs-toggle", "collapse").attr("data-bs-target", "#collapse-search-" + id));
 
         return ul;
     }
@@ -156,9 +155,9 @@ export function search() {
         let tbody = $("<tbody>");
 
         let tr1 = makeTr();
-        let th1 = makeTh("Música");
+        let th1 = makeTh("Song name");
         let td1 = makeTd(music.name);
-        let th2 = makeTh("Artista");
+        let th2 = makeTh("Artist");
         let td2 = makeTd(music.artist);
         tr1.append(th1);
         tr1.append(td1);
@@ -167,9 +166,9 @@ export function search() {
         tbody.append(tr1);
 
         let tr2 = makeTr();
-        let th3 = makeTh("Tipo");
+        let th3 = makeTh("Type");
         let td3 = makeTd(music.type);
-        let th4 = makeTh("Temporada");
+        let th4 = makeTh("Season");
         let td4 = makeTd(music.season);
         tr2.append(th3);
         tr2.append(td3);
