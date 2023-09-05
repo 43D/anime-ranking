@@ -25,6 +25,7 @@ export function events() {
         createButtonAction();
         muteActionMod();
         btnAddPlaylistById();
+        btnEditPlaylistById();
         createButtonCollapse();
         btnPlaylist();
         playlist();
@@ -205,7 +206,7 @@ export function events() {
         });
     }
 
-    function btnAddPlaylistById() {
+    function btnEditPlaylistById() {
         $("#btn-playlist-edit").click(function () {
             playlistManagerClass.editPlaylistForm();
         });
