@@ -198,7 +198,6 @@ export function playlistManager() {
     }
 
     function addPlaylistById(id, music) {
-        console.log("a: " + id, "b: " + music);
         let array = playlist[id][0].musics;
         if (!array.includes(music)) {
             array[array.length] = music;
